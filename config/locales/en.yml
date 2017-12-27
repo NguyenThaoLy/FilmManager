@@ -1,6 +1,7 @@
 en:
   notfind: can not find film
   please: "Please log in."
+  Welcome: "Welcome to the HHL cinema"
   helpers:
     application_helper:
       title: "HHL"
