@@ -35,6 +35,22 @@ en:
       sex: "sex:"
       address: "address:"
       phone: "phone:"
+    header:
+      login: "Log in"
+      home: "Home"
+      users: "Users"
+      account: "Account"
+      profile: "Profile"
+      settings: "Settings"
+      logout: "Logout"
+    index:
+      title: "AdminUser"
+      id: "ID"
+      username: "Username"
+      sex: "Sex"
+      email: "Email"
+      address: "Address"
+      phone: "Phone"
   sessions:
     new:
       login: "Log in"
@@ -46,6 +62,15 @@ en:
     error_messages:
       contains: "The form contains"
       error: "error"
+    error_messages_category:
+      contains: "The form contains"
+      error: "error"
+    error_messages_film:
+      contains: "The form contains"
+      error: "error"
+    error_messages_schedule:
+      contains: "The form contains"
+      error: "error"
   controllers:
     films_controler:
       notice: "Successfully created film."
@@ -55,6 +80,18 @@ en:
       danger: "Not delete film."
     static_pages_controller:
       error: "No found film."
+    categories_controller:
+      notice: "Successfully created category."
+      notice1: "Successfully updated category."
+      notice2: "Successfully deleted category."
+      error: "No found category."
+      danger: "Not delete category."
+    schedules_controller:
+      notice: "Successfully created schedule."
+      notice1: "Successfully updated schedule."
+      notice2: "Successfully deleted schedule."
+      error: "No found schedule."
+      danger: "Not delete schedule."
   films:
     new:
       title: "Film"
@@ -65,6 +102,7 @@ en:
       edit: "Edit"
       delete: "Delete"
       sure: "You sure?"
+      id: "ID"
       name: "Name"
       actor: "Actor"
       duration: "Duration"
@@ -81,6 +119,55 @@ en:
       sort: "Sort by"
   orders:
     create:
-      booked: "Booking complete"
+      booked: "Book ticket successful!We will send ticket information and show hours to your phone number. Thank you!"
     show:
       booking: "Booking"
+    index:
+      title: "OrderFilm"
+      id: "ID"
+      name_id: "User_ID"
+      name: "User_name"
+      amount: "Amount"
+      schedule_date: "Date show"
+      schedule_time: "Time show"
+
+  categories:
+    form:
+      create: "Create"
+    edit:
+      update: "Update"
+      title: "Edit category"
+    index:
+      title: "Category"
+      new: "NewCategory"
+      id: "ID"
+      name: "Name"
+      edit: "Edit"
+      delete: "Delete"
+      sure: "You sure?"
+    new:
+      title: "Category"
+      create: "Create category film!"
+      back: "BACK"
+  schedules:
+    form:
+      create: "Create"
+    edit:
+      title: "Edit schedule"
+      update: "Update"
+    index:
+      title: "Schedule"
+      new: "NewSchedule"
+      id: "ID"
+      time: "Time"
+      date: "Date"
+      price: "Price"
+      film: "NameFilm"
+      edit: "Edit"
+      delete: "Delete"
+      sure: "You sure?"
+    new:
+      title: "Schedule"
+      new: "Welcome to new schedule!"
+      back: "BACK"
+

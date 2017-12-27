@@ -5,6 +5,6 @@ class SearchesController < ApplicationController
   end
 
   def show
-    @films = Film.where(name: params[:term]).select(:name, :id, :poster)
+    @films = Film.where(name: params[:term]).film_search
   end
 end

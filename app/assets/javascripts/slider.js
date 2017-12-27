@@ -1,9 +1,9 @@
-(function(){
+$(function(){
   $('#eventslider').carousel({ interval: 3000 });
 
 }());
 
-(function(){
+$(function(){
   $('.carousel-showmanymoveone .item').each(function(){
     var itemToClone = $(this);
 

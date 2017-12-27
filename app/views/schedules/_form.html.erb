@@ -1,0 +1,16 @@
+<%= form_for @schedule do |f| %>
+  <%= render 'shared/error_messages_schedule' %>
+  <%= f.label :time %>
+  <%= f.text_field :time, class: "form-control" %>
+
+  <%= f.label :date %>
+  <%= f.date_field :date, class: "form-control" %><br>
+
+  <%= f.label :price %>
+  <%= f.text_field :price, class: "form-control" %><br>
+
+  <%= f.label :film_id %>
+  <%= f.collection_select :film_id, Film.order(:name), :id, :name, include_blank: true %> <br><br>
+
+   <%= f.submit t(".create"), class: "btn btn-primary" %>
+<% end %>

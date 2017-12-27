@@ -1,0 +1,27 @@
+<% provide :title , t(".title") %>
+<div class="showadmin">
+  <%= paginate @orders %>
+  <table class="table table-bordered table-list">
+    <thead>
+      <tr class="table-title">
+          <th><%= t ".name_id" %></th>
+          <th><%= t ".name" %></th>
+          <th><%= t ".amount" %></th>
+          <th><%= t ".schedule_date" %></th>
+          <th><%= t ".schedule_time" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |f| %>
+      <tr>
+          <td><%= f.user_id %></td>
+          <td><%= f.user.username %></td>
+          <td><%= f.amount %></td>
+          <td><%= f.schedule.date  %></td>
+          <td><%= I18n.l f.schedule.time, format: "%H:%M" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @orders %>
+</div>

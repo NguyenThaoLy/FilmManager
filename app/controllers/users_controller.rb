@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  before_action :admin_user, only: [:index]
+  def index
+    @users = User.user_info.order(:id).page params[:page]
+  end
+
   def show
     @user = User.find_by id: params[:id]
     unless @user

@@ -19,7 +19,8 @@
     padding-left: 40px;
 }
 #slider-text h2::after {
-    border-top: 2px solid $gray-bright;
+    border-top: 2px solid;
+    border-color: $gray-bright;
     bottom: 35px;
     content: "";
     position: absolute;

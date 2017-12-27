@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :rates
+  paginates_per Settings.user.paginates_per
   has_many :reviews
   has_many :orders
 
@@ -13,4 +14,5 @@ class User < ApplicationRecord
   validates :phone, presence: true
   validates :address, presence: true
   validates :sex, presence: true
+  scope :user_info, -> {select(:id, :username, :sex, :email, :address, :phone)}
 end
