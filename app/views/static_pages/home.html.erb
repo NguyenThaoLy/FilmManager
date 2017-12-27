@@ -64,10 +64,10 @@
             <% @films.each do |f| %>
               <% if f.status == "1" %>
                 <div class="film col-md-3">
-                  <%= link_to  image_tag(f.poster), detailFilm_path(id: f.id) %>
+                  <%= link_to  image_tag(f.poster), film_path(id: f.id) %>
                   <div class="des">
                     <p><%= f.name %></p>
-                    <%= link_to "SEE DETAILS", detailFilm_path(id: f.id), class: "btn btn-danger"%>
+                    <%= link_to "SEE DETAILS", film_path(id: f.id), class: "btn btn-danger"%>
                   </div>
                 </div>
               <% end %>
@@ -77,10 +77,10 @@
             <% @films.each do |f| %>
               <% if f.status == "2" %>
                 <div class="film col-md-3">
-                  <%= link_to  image_tag(f.poster), detailFilm_path(id: f.id) %>
+                  <%= link_to  image_tag(f.poster), film_path(id: f.id) %>
                   <div class="des">
                     <p><%= f.name %></p>
-                    <%= link_to "SEE DETAILS", detailFilm_path(id: f.id), class: "btn btn-danger"%>
+                    <%= link_to "SEE DETAILS", film_path(id: f.id), class: "btn btn-danger"%>
                   </div>
                 </div>
               <% end %>

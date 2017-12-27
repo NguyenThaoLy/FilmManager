@@ -1,7 +1,8 @@
 class User < ApplicationRecord
-  has_many :rate
+  has_many :rates
   has_many :reviews
   has_many :orders
+
   before_save {email.downcase!}
   validates :username, presence: true, length: {maximum: Settings.user.username.maximum}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i

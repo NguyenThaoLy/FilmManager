@@ -5,6 +5,17 @@ en:
   layouts:
     application:
       title: "HHL"
+    header:
+      home: "Home"
+      account: "Account"
+      login: "LOG IN"
+      profile: "Profile"
+      settings: "Settings"
+      logout: "Log out"
+      movie: "MOVIE"
+      movie_schu: "MOVIE SCHEDULE"
+      fake: "FARE"
+      registration: "REGISTRATION"
   users:
     show:
       updateP: "Update profile"
@@ -14,22 +25,22 @@ en:
       sex: "sex:"
       address: "address:"
       phone: "phone:"
-    header:
-      login: "Log in"
-      home: "Home"
-      users: "Users"
-      account: "Account"
-      profile: "Profile"
-      settings: "Settings"
-      logout: "Logout"
+  searches:
+    show:
+      see_detail: "SEE DETAILS"
   users:
     new:
       signup: "SignUp"
       confirmation: "Confirmation"
       create: "Create my account"
     show:
-      updateP: "Update profile"
+      update_p: "Update profile"
       profile: "Profile"
+      name: "name:"
+      email: "email:"
+      sex: "sex:"
+      address: "address:"
+      phone: "phone:"
   sessions:
     new:
       login: "Log in"
@@ -70,5 +81,3 @@ en:
       poster: "Poster"
       trailer: "Trailer"
       category: "Category"
-
-
