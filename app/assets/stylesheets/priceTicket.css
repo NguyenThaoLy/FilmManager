@@ -6,7 +6,7 @@
     width: 100%;
 }
 table,th,td {
-    border: 1px solid #636363;
+    border: 1px solid $gray-light;
     border-collapse: collapse;
     text-align: center;
     line-height: 18px;
@@ -20,8 +20,8 @@ table {
     width: 42%;
 }
 .table-ticket-title {
-    background-color: #333;
-    color: #fff;
+    background-color: $gray;
+    color: $white;
     font-size: 18px;
     font-weight: 300;
     margin: 0;
@@ -30,19 +30,19 @@ table {
     width: 100%;
 }
 .ticket-day {
-    color: #636363;
+    color: $gray-light;
     font-size: 12px;
     font-weight: bold;
     line-height: 18px;
     padding: 20px 0;
 }
 .ticket-cate {
-    color: #636363;
+    color: $gray-light;
     font-size: 12px;
     line-height: 18px;
 }
 .value {
-    color: #716e75;
+    color: $gray-medium-light;
     font-size: 18px;
     font-weight: bold;
 }
@@ -54,7 +54,7 @@ table {
     text-align: left;
 }
 .table-ticket-col3-nl {
-    color: #636363;
+    color: $gray-light;
     font-size: 12px;
     padding: 30px;
     width: 33%;
@@ -64,7 +64,7 @@ table {
     width: 100%;
 }
 .table-ticket-col1-nl {
-    color: #636363;
+    color: $gray-light;
     font-size: 18px;
     font-weight: bold;
     padding: 7px;
@@ -93,6 +93,6 @@ table {
     width: 100%;
 }
 .title img{
-    background-color: #FDFCF0;
+    background-color: $gray-less;
     padding-top: 9px;
 }

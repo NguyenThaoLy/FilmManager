@@ -1,3 +1,4 @@
+
 #slider-text {
     display: block;
     padding-top: 10px;
@@ -18,17 +19,17 @@
     padding-left: 40px;
 }
 #slider-text h2::after {
-    border-top: 2px solid #c7c7c7;
+    border-top: 2px solid $gray-bright;
     bottom: 35px;
     content: "";
     position: absolute;
     width: 100%;
 }
 .badge {
-    background: #b20c0c;
+    background: $red-light;
     border-radius: 50%;
     border: 2px solid #FFF;
-    box-shadow: 0 0 0 1px #b20c0c;
+    box-shadow: 0 0 0 1px $red-light;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 14px;
     font-weight: 300;

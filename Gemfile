@@ -7,22 +7,19 @@ end
 
 gem "bcrypt", "3.1.11"
 gem "bootstrap-sass", "3.3.7"
-gem "bootstrap-will_paginate", "1.0.0"
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "faker", "1.7.3"
+gem "font-awesome-rails"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails", "4.3.1"
+gem "kaminari"
 gem "mysql2", "~> 0.3.16"
 gem "puma", "~> 3.7"
-gem "font-awesome-rails"
 gem "rails", "~> 5.1.4"
 gem "sass-rails", "~> 5.0"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
-gem "will_paginate", "3.1.6"
-gem "mysql2", "~> 0.3.16"
-
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
