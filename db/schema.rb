@@ -20,51 +20,57 @@ ActiveRecord::Schema.define(version: 20171229015628) do
 
   create_table "films", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
-    t.string "product"
-    t.date "date"
+    t.string "actor"
+    t.date "duration"
     t.integer "time"
     t.string "directors"
     t.text "detail"
     t.string "status"
     t.string "poster"
     t.string "trailer"
-    t.integer "category_id"
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_films_on_category_id"l
   end
 
   create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.date "date"
-    t.integer "amout"
-    t.integer "schedule_id"
-    t.integer "user_id"
+    t.integer "amount"
+    t.bigint "schedule_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["schedule_id"], name: "index_orders_on_schedule_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id"
-    t.integer "film_id"
     t.float "point", limit: 24
+    t.bigint "film_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["film_id"], name: "index_rates_on_film_id"
   end
 
   create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id"
-    t.string "content"
-    t.integer "film_id"
+    t.text "content"
+    t.bigint "film_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["film_id"], name: "index_reviews_on_film_id"
   end
 
   create_table "schedules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.time "time"
     t.date "date"
     t.integer "price"
-    t.integer "film_id"
+    t.bigint "film_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["film_id"], name: "index_schedules_on_film_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -80,4 +86,10 @@ ActiveRecord::Schema.define(version: 20171229015628) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "films", "categories"
+  add_foreign_key "orders", "schedules"
+  add_foreign_key "orders", "users"
+  add_foreign_key "rates", "films"
+  add_foreign_key "reviews", "films"
+  add_foreign_key "schedules", "films"
 end

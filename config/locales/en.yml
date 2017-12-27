@@ -5,3 +5,12 @@ en:
   layouts:
     application:
       title: "HHL"
+  users:
+    show:
+      updateP: "Update profile"
+      profile: "Profile"
+      name: "name:"
+      email: "email:"
+      sex: "sex:"
+      address: "address:"
+      phone: "phone:"
