@@ -1,0 +1,226 @@
+<div id="content-schedule">
+	<div class="container">
+		<div class="row">
+			<div class="home-title">
+				<h3>Cinema</h3>
+			</div>
+			<div class="lc-main-slide">
+				<div id="carousel-id" class="carousel slide" data-ride="carousel">
+					<div class="carousel-inner">
+						<div class="item">
+							<%= link_to  image_tag("slide1.jpg", alt: "CGV HHLcinema"), '/assets/images' %>
+						</div>
+						<div class="item">
+							<%= link_to  image_tag("slide2.jpg", alt: "CGV HHLcinema"), '/assets/images' %>
+						</div>
+						<div class="item active">
+							<%= link_to  image_tag("slide3.jpg", alt: "CGV HHLcinema"), '/assets/images' %>
+						</div>
+					</div>
+					<div class="carousel-caption-text">
+						<div class="carousel-caption-left">
+							<div class="carousel-caption-left-content">
+								<h6> HHLcinema - tầng 1 - khu đô thị mới -Số 203-Mộ Lao- Hà đông -Hà Nội</h6>
+								<h6><strong>Fax: </strong>+01693057613</h6>
+								<h6><strong>Hotline: </strong> 19001009</h6>
+							</div>
+						</div>
+						<div class="carousel-caption-right">
+							<ul class="carousel-caption-right-nav">
+								<li><%= link_to "VIEW THE MAP", "#", class: "btn-carousel" %></li>
+								<li><%= link_to "CONTACT CGV", "#", class: "btn-carousel" %></li>
+							</ul>
+						</div>
+					</div>
+					<a class="left carousel-control" href="#carousel-id" data-slide="prev"><span class="prev-left"></span></a>
+					<a class="right carousel-control" href="#carousel-id" data-slide="next"><span class="next-right"></span></a>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="scheduleFilm">
+				<ul class="nav nav-tabs nav-showtimes-child">
+					<li class="active">
+						<a href="#date1" data-toggle="tab">
+							<span>09</span>
+							<em>Tue</em>
+							<strong>26</strong>
+						</a>
+					</li>
+					<li>
+						<a href="#date2" data-toggle="tab">
+							<span>10</span>
+							<em>Wue</em>
+							<strong>27</strong>
+						</a>
+					</li>
+				</ul>
+				<div class="tab-content clearfix">
+					<div class="tab-pane active" id="date1">
+						<div class="row show-times">
+							<div class="titleFilm">
+								<h3>KINGSMAN : HOANG KIM ORGANIZATION</h3>
+							</div>
+							<div class="img-film-left col-md-3">
+								<%= link_to  image_tag("10.jpg", alt: "CGV HHLcinema"), detailFilm_path %>
+							</div>
+							<div class="details-right col-md-9">
+								<div class="typeFilm">
+									<strong>2D Subtitles Viet</strong>
+								</div>
+								<div class="timeShow">
+									<ul>
+										<li>
+											<button type="button" class="btn btn-primary">16:20 PM</button>
+										</li>
+										<li>
+											<button type="button" class="btn btn-primary">18:00 PM</button>
+										</li>
+										<li>
+											<button type="button" class="btn btn-primary">20:30 PM</button>
+										</li>
+										<li>
+											<button type="button" class="btn btn-primary">22:20 PM</button>
+										</li>
+									</ul>
+								</div>
+								<div class="clear-both"></div>
+								<div class="typeFilm">
+									<strong>3D Subtitles Viet</strong>
+								</div>
+								<div class="timeShow">
+									<ul>
+										<li>
+											<button type="button" class="btn btn-primary">16:20 PM</button>
+										</li>
+										<li>
+											<button type="button" class="btn btn-primary">18:00 PM</button>
+										</li>
+										<li>
+											<button type="button" class="btn btn-primary">20:30 PM</button>
+										</li>
+										<li>
+											<button type="button" class="btn btn-primary">22:20 PM</button>
+										</li>
+									</ul>
+								</div>
+								<div class="clear-both"></div>
+									<%= link_to "Booking", detailFilm_path, class: "book btn btn-danger" %>
+							</div>
+						</div>
+						<div class="clear-both"></div>
+						<hr>
+						<div class="row show-times">
+							<div class="titleFilm">
+								<h3>KINGSWOMEN : BOSS BOSS BOSS</h3>
+							</div>
+							<div class="img-film-left col-md-3">
+								<%= link_to  image_tag("10.jpg", alt: "CGV HHLcinema"), detailFilm_path %>
+							</div>
+							<div class="details-right col-md-9">
+								<div class="typeFilm">
+									<strong>2D Subtitles Viet</strong>
+								</div>
+								<div class="timeShow">
+									<ul>
+										<li>
+											<button type="button" class="btn btn-primary">16:20 PM</button>
+										</li>
+										<li>
+											<button type="button" class="btn btn-primary">18:00 PM</button>
+										</li>
+										<li>
+											<button type="button" class="btn btn-primary">20:30 PM</button>
+										</li>
+										<li>
+											<button type="button" class="btn btn-primary">22:20 PM</button>
+										</li>
+									</ul>
+								</div>
+								<div class="clear-both"></div>
+								<div class="typeFilm">
+									<strong>3D Subtitles Viet</strong>
+								</div>
+								<div class="timeShow">
+									<ul>
+										<li>
+											<button type="button" class="btn btn-primary">16:20 PM</button>
+										</li>
+										<li>
+											<button type="button" class="btn btn-primary">18:00 PM</button>
+										</li>
+										<li>
+											<button type="button" class="btn btn-primary">20:30 PM</button>
+										</li>
+										<li>
+											<button type="button" class="btn btn-primary">22:20 PM</button>
+										</li>
+									</ul>
+								</div>
+								<div class="clear-both"></div>
+									<%= link_to "Booking", detailFilm_path, class: "book btn btn-danger" %>
+							</div>
+						</div>
+						<div class="clear-both"></div>
+						<hr>
+					</div>
+					<div class="tab-pane " id="date2">
+						<div class="row show-times">
+							<div class="titleFilm">
+								<h3>SORRY 2: THE FALLEN</h3>
+							</div>
+							<div class="img-film-left col-md-3">
+								<%= link_to  image_tag("11.png", alt: "CGV HHLcinema"), detailFilm_path %>
+							</div>
+							<div class="details-right col-md-9">
+								<div class="typeFilm">
+									<strong>2D Subtitles Viet</strong>
+								</div>
+								<div class="timeShow">
+									<ul>
+										<li>
+											<button type="button" class="btn btn-primary">16:20 PM</button>
+										</li>
+										<li>
+											<button type="button" class="btn btn-primary">18:00 PM</button>
+										</li>
+										<li>
+											<button type="button" class="btn btn-primary">20:30 PM</button>
+										</li>
+										<li>
+											<button type="button" class="btn btn-primary">22:20 PM</button>
+										</li>
+									</ul>
+								</div>
+								<div class="clear-both"></div>
+								<div class="typeFilm">
+									<strong>3D Subtitles Viet</strong>
+								</div>
+								<div class="timeShow">
+									<ul>
+										<li>
+											<button type="button" class="btn btn-primary">16:20 PM</button>
+										</li>
+										<li>
+											<button type="button" class="btn btn-primary">18:00 PM</button>
+										</li>
+										<li>
+											<button type="button" class="btn btn-primary">20:30 PM</button>
+										</li>
+										<li>
+											<button type="button" class="btn btn-primary">22:20 PM</button>
+										</li>
+									</ul>
+								</div>
+								<div class="clear-both"></div>
+									<%= link_to "Booking", detailFilm_path, class: "book btn btn-danger" %>
+							</div>
+						</div>
+						<div class="clear-both"></div>
+						<hr>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,50 @@
+h3,p{
+	font-family: serif;
+}
+#detail_film{
+	margin-top: 3%;
+}
+.content-detail a{
+    padding-left: 40%;
+}
+.content-detail h3{
+	font-weight: bold;
+}
+.img-detail img{
+	width: 100%;
+}
+.info {
+  background-color: #2196F3;
+  color: white;
+  font-size: 18px;
+  width: 100px;
+}
+.info:hover {
+	background: #0b7dda;
+	color: white;
+}
+.comment{
+  border-bottom: 1px solid #e9ebee;
+  line-height: 25px;
+  margin-bottom: 24px;
+  margin-top: 5%;
+  padding: 8px 0;
+}
+.clearfix{
+	zoom:1;
+}
+.lfload{
+	float: left;
+}
+.countC{
+	font-weight: bold;
+}
+.rfload{
+	float: right;
+}
+.pub{
+	color: #4b4f56;
+}
+.modal-body{
+	height: 500px;
+}

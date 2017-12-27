@@ -1,0 +1,98 @@
+.lc-main-ticket-qc{
+    margin-top: 2%;
+    margin-bottom: 3%;
+}
+.lc-main-ticket-qc img{
+    width: 100%;
+}
+table,th,td {
+    border: 1px solid #636363;
+    border-collapse: collapse;
+    text-align: center;
+    line-height: 18px;
+}
+table {
+}
+.table-ticket-col1 {
+    width: 16%;
+}
+.table-ticket-col3{
+    width: 42%;
+}
+.table-ticket-title {
+    background-color: #333;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 300;
+    margin: 0;
+    padding: 7px 0;
+    text-transform: uppercase;
+    width: 100%;
+}
+.ticket-day {
+    color: #636363;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 18px;
+    padding: 20px 0;
+}
+.ticket-cate {
+    color: #636363;
+    font-size: 12px;
+    line-height: 18px;
+}
+.value {
+    color: #716e75;
+    font-size: 18px;
+    font-weight: bold;
+}
+.value > .table-ticket-col1 {
+    padding: 15px;
+}
+.ticket-footer {
+    padding: 10px;
+    text-align: left;
+}
+.table-ticket-col3-nl {
+    color: #636363;
+    font-size: 12px;
+    padding: 30px;
+    width: 33%;
+}
+.table-nl {
+    margin-top: 50px;
+    width: 100%;
+}
+.table-ticket-col1-nl {
+    color: #636363;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 7px;
+}
+.lc-main-note h3{
+    font-family: serif;
+    font-weight: bold;
+}
+.lc-main-note ul {
+    font-family: serif;
+    font-size: 16px;
+    list-style: none;
+    margin-left: 5%;
+    padding: 0;
+}
+.event{
+    margin: 20px auto;
+}
+.title {
+    background-position: left center;
+    background-repeat: repeat-x;
+    background: url(https://imgur.com/a/wb3D9.jpg);
+    height: 60px;
+    margin: 10px;
+    text-align: center;
+    width: 100%;
+}
+.title img{
+    background-color: #FDFCF0;
+    padding-top: 9px;
+}
