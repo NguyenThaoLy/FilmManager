@@ -1,35 +1,40 @@
 en:
+  notfind: can not find film
+  please: "Please log in."
   helpers:
     application_helper:
       title: "HHL"
+    users_helper:
+      please: "Please log in."
   layouts:
     application:
       title: "HHL"
-  users:
-    show:
-      updateP: "Update profile"
-      profile: "Profile"
-      name: "name:"
-      email: "email:"
-      sex: "sex:"
-      address: "address:"
-      phone: "phone:"
     header:
-      login: "Log in"
+      login: "LOG IN"
       home: "Home"
-      users: "Users"
-      account: "Account"
       profile: "Profile"
       settings: "Settings"
-      logout: "Logout"
+      logout: "Log out"
+      movie: "MOVIE"
+      movie_schu: "MOVIE SCHEDULE"
+      fake: "FARE"
+      registration: "REGISTRATION"
+  searches:
+    show:
+      see_detail: "SEE DETAILS"
   users:
     new:
       signup: "SignUp"
       confirmation: "Confirmation"
       create: "Create my account"
     show:
-      updateP: "Update profile"
+      update_p: "Update profile"
       profile: "Profile"
+      name: "name:"
+      email: "email:"
+      sex: "sex:"
+      address: "address:"
+      phone: "phone:"
   sessions:
     new:
       login: "Log in"
@@ -70,5 +75,12 @@ en:
       poster: "Poster"
       trailer: "Trailer"
       category: "Category"
-
-
+    show:
+      select_time: "Please select a movie time"
+      comment: "0 comment"
+      sort: "Sort by"
+  orders:
+    create:
+      booked: "Booking complete"
+    show:
+      booking: "Booking"

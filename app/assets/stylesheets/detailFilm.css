@@ -43,9 +43,12 @@ h3,p{
 	color: $gray-medium;
 }
 .modal-body{
-  height: 500px;
+  height: auto;
 }
 .btnok{
   margin-left: 43%;
   margin-top: 10%;
+}
+.btntime{
+  width: 20%;
 }
