@@ -1,0 +1,9 @@
+<% @films.each do |f| %>
+  <div class="film col-md-3">
+    <%= link_to  image_tag(f.poster), film_path(id: f.id) %>
+    <div class="des">
+      <p><%= f.name %></p>
+      <%= link_to t(".see_detail"), film_path(id: f.id), class: "btn btn-danger"%>
+    </div>
+  </div>
+<% end %>

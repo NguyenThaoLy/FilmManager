@@ -11,38 +11,25 @@
           <div class="menu-top">
             <nav>
               <ul>
-                <li><%= link_to "MOVIE", root_path %></li>
-                <li><%= link_to "MOVIE SCHEDULE", schedule_path %></li>
-                <li><%= link_to "FARE", priceTicket_path %></li>
-                <% if logged_in? && !current_user.try(:admin?) %>
+                <li><%= link_to t(".movie"), root_path %></li>
+                <li><%= link_to t(".movie_schu"), schedule_path %></li>
+                <li><%= link_to t(".fake"), priceTicket_path %></li>
+                <% if logged_in? %>
                   <li><%= @current_user.username %></li>
                   <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                      Account <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><%= link_to "Profile", current_user %></li>
-                      <li><%= link_to "Settings", '#' %></li>
-                      <li class="divider"></li>
-                      <li><%= link_to "Log out", logout_path, method: :delete %></li>
-                    </ul>
-                  </li>
-                <% elsif current_user.try(:admin?) %>
-                  <li><%= link_to @current_user.username, films_url %></li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                      Account <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><%= link_to "Profile", current_user %></li>
-                      <li><%= link_to "Settings", '#' %></li>
-                      <li class="divider"></li>
-                      <li><%= link_to "Log out", logout_path, method: :delete %></li>
-                    </ul>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Account <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to t(".profile"), current_user %></li>
+                    <li><%= link_to t(".settings"), '#' %></li>
+                    <li class="divider"></li>
+                    <li><%= link_to t("logout"), logout_path, method: :delete %></li>
+                  </ul>
                   </li>
                 <% else %>
-                  <li><%= link_to "REGISTRATION", signup_path %></li>
-                  <li><%= link_to "LOG IN", login_path %></li>
+                  <li><%= link_to t(".registration"), signup_path %></li>
+                  <li><%= link_to t(".login"), login_path %></li>
                 <% end %>
               </ul>
             </nav>
@@ -52,13 +39,19 @@
           <div class="search-new">
             <%= link_to image_tag("new-offer-vn.png", alt: "new-offer-vn"), '/assets/images' %>
           </div>
-           <div class="search">
-            <form action="/search_results" method="get" accept-charset="utf-8">
+          <div class="search">
+            <%= form_tag search_results_path, method: :get do %>
               <div class="search-box">
-                  <input type="text" name="term" id="filter-autocomplete-search" class="ui-autocomplete-input" autocomplete="off">
-                  <input type="submit" name="commit" value="search" data-disable-with="search" class="sub">
+                <div class="filter">
+                  <%= text_field_tag :term, params["term"], id: "filter-autocomplete-search" %>
+                </div>
+                <div class="sub">
+                  <%= submit_tag "search"%>
+                </div>
               </div>
+            <% end %>
             </form>
+          </div>
           </div>
           <div class="search-booking">
             <%= link_to image_tag("icon-mua-ve_ngay.png", alt: "icon-mua-ve_ngay.png"), '/assets/images' %>

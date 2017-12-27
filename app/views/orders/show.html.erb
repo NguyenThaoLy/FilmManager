@@ -1,0 +1,30 @@
+<h1>Booking</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+
+    <%= form_for @orders do |f| %>
+
+
+      <%= f.label :username %>
+      <span><%= current_user.username %></span>
+      <br>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+
+      <%= f.label :time %>
+      <span><%= (I18n.l @schedules.time, format: "%H:%M") %></span>
+      <br>
+
+      <%= f.label :date %>
+      <span><%= @schedules.date %></span>
+      <br>
+      <%= f.hidden_field :schedule_id, value: @schedules.id %>
+
+      <%= f.label :amount %>
+      <%= f.text_field :amount, class: "form-control" %>
+      <%= f.submit "Save", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+</div>
+
