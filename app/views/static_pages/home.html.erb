@@ -1,0 +1,141 @@
+<div id="content">
+  <div class="container">
+    <div class="row">
+      <div class="sect-person">
+        <ul>
+          <li><%= link_to "", class: "theater" %></li>
+          <li><%= link_to "", class: "now-sh" %></li>
+          <li><%= link_to "", class: "special" %></li>
+          <li><%= link_to "", class: "arthouse" %></li>
+          <li><%= link_to "", class: "contact" %></li>
+          <li><%= link_to "", class: "new" %></li>
+          <li><%= link_to "", class: "login" %></li>
+        </ul>
+      </div>
+      <!-- end sect-person -->
+      <div id="slide-show" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#slide-show" data-slide-to="0" class="active"></li>
+            <li data-target="#slide-show" data-slide-to="1"></li>
+              <li data-target="#slide-show" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+              <div class="item active">
+                <%= link_to  image_tag("slide4.png", alt: "slide4.png"), '/assets/images' %>
+                <div class="carousel-caption">
+                </div>
+              </div>
+              <div class="item">
+                <%= link_to  image_tag("slide5.png", alt: "slide5.png"), '/assets/images' %>
+                <div class="carousel-caption">
+                </div>
+              </div>
+              <div class="item">
+                <%= link_to  image_tag("slide6.jpg", alt: "slide6.jpg"), '/assets/images' %>
+                <div class="carousel-caption">
+                </div>
+              </div>
+            <a class="left carousel-control" href="#slide-show" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#slide-show" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+          </div>
+      </div>
+      <script>
+        $('#slide-show').carousel({
+          interval:   4000
+        });
+      </script>
+    </div>
+    <div class="row">
+      <div class="filmCategory">
+        <ul class="nav nav-tabs">
+          <li class="active">
+            <a href="#phimdangchieu" data-toggle="tab"><h4>SHOWING MOVIE</h4></a>
+          </li>
+          <li>
+            <a href="#phimsapchieu" data-toggle="tab"><h4>UPCOMING MOVIE</h4></a>
+          </li>
+        </ul>
+        <div class="tab-content clearfix">
+          <div class="tab-pane active" id="phimdangchieu">
+            <div class="film col-md-3">
+              <%= link_to  image_tag("1.jpg", alt: "1.jpg"), detailFilm_path %>
+              <div class="des">
+                <p>Tam sinh tam thế</p>
+                <%= link_to "SEE DETAILS", detailFilm_path, class: "btn btn-danger"%>
+              </div>
+            </div>
+            <div class="film col-md-3">
+              <%= link_to  image_tag("2.jpg", alt: "2.jpg"), detailFilm_path%>
+              <div class="des">
+                <p>Chestnut work</p>
+                <%= link_to "SEE DETAILS", detailFilm_path, class: "btn btn-danger"%>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="phimsapchieu">
+            <div class="film col-md-3">
+              <%= link_to  image_tag("10.jpg", alt: "10.jpg"), detailFilm_path %>
+              <div class="des">
+                <p>MUMMIES</p>
+                <%= link_to "SEE DETAILS", detailFilm_path, class: "btn btn-danger"%>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="event">
+        <div class="title">
+          <%= link_to  image_tag("h3_event.gif", alt: "h3_event.gif"), '/assets/images' %>
+        </div>
+        <!-- Item slider-->
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <div class="carousel carousel-showmanymoveone slide" id="eventslider">
+            <div class="carousel-inner">
+                <div class="item active">
+                  <div class="col-xs-12 col-sm-6 col-md-3">
+                    <%= link_to  image_tag("item1.jpg", alt: "item1.jpg"), class: "img-responsive" %>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="col-xs-12 col-sm-6 col-md-3">
+                    <%= link_to  image_tag("item2.jpg", alt: "item2.jpg"), class: "img-responsive" %>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="col-xs-12 col-sm-6 col-md-3">
+                    <%= link_to  image_tag("item3.jpg", alt: "item3.jpg"), class: "img-responsive" %>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="col-xs-12 col-sm-6 col-md-3">
+                    <%= link_to  image_tag("item4.png", alt: "item4.png"), class: "img-responsive" %>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="col-xs-12 col-sm-6 col-md-3">
+                    <%= link_to image_tag("item5.jpg", alt: "item5.jpg"), class: "img-responsive" %>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="col-xs-12 col-sm-6 col-md-3">
+                    <%= link_to  image_tag("item6.jpg", alt: "item6.jpg"), class: "img-responsive" %>
+                  </div>
+                </div>
+              </div>
+            <div id="slider-event-control">
+             <%= link_to(image_tag("en.png", alt: "Left", class: "img-responsive"), "#", class: "left carousel-control", :'data-slide' => "prev") %>
+             <%= link_to(image_tag("right.png", alt: "Right", class: "img-responsive"), "#", class: "right carousel-control", :'data-slide' => "next") %>
+            </div>
+          </div>
+        </div>
+        <!-- Item slider end-->
+      </div>
+    </div>
+  </div>
+</div>

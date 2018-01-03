@@ -1,0 +1,197 @@
+.home-title h3 {
+	background: url(https://i.imgur.com/XNoqG8I.png) no-repeat scroll center center #fff;
+    display: inline-block;
+    width: 220px
+
+}
+.home-title {
+    margin-bottom: 30px;
+    margin-top: 30px;
+	background: url(https://imgur.com/a/wb3D9.jpg) repeat-x scroll left center rgba(0, 0, 0, 0);
+    height: 60px;
+    text-align: center;
+    width: 100%;
+}
+.home-title h3 {
+    height: 41px;
+    text-indent: -99999px;
+}
+h3 {
+	margin: 0;
+    margin-bottom: 10px;
+    color: #222;
+    font-family: "Helvetica Neue", Verdana, Arial, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    text-rendering: optimizeSpeed;
+}
+.carousel-control.right ,.carousel-control.left{
+    background-image: none;
+}
+.prev-left , .next-right {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    z-index: 110;
+    cursor: pointer;
+}
+.prev-left {
+    left: 0;
+}
+.next-right {
+    right: 0;
+}
+.prev-left:before {
+    background: transparent url(https://i.imgur.com/uk4zUqU.png) no-repeat scroll 0 -97px;
+    border: medium none;
+    height: 55px!important;
+    content: '';
+    position: absolute;
+    width: 26px!important;
+    top: 40%;
+    left: 30%;
+}
+.next-right:before {
+    background: transparent url(https://i.imgur.com/uk4zUqU.png) no-repeat scroll -30px -97px;
+    border: medium none;
+    height: 55px!important;
+    content: '';
+    position: absolute;
+    width: 26px!important;
+    top: 40%;
+    right: 30%;
+}
+.carousel-caption-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: rgba(0, 0, 0, 0.5);
+}
+.carousel-caption-left {
+    width: 75%;
+    float: left;
+    padding: 10px 15px;
+    color: #FFF;
+}
+.carousel-caption-left-content{
+    border-right: 1px solid #f2f2f2;
+}
+.carousel-caption-left-content h6 {
+    font-size: 11px;
+}
+.carousel-caption-right{
+    width: 22%;
+    float: left;
+    padding: 20px 10px;
+}
+.carousel-caption-right-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.carousel-caption-right-nav li {
+    margin-bottom: 15px;
+}
+.carousel-caption-right-nav li .btn-carousel{
+    background: #e71a0f;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 5px 15px;
+}
+.carousel-caption-right-nav li .btn-carousel:hover {
+    text-decoration: none;
+}
+.nav-tabs.nav-showtimes-child {
+    margin-top: 50px;
+    border-bottom: 2px solid;
+    border-top: 2px solid;
+    padding: 20px;
+}
+.nav-tabs.nav-showtimes-child>li>a,.nav-tabs.nav-showtimes-child>li.active>a:hover,.nav-tabs.nav-showtimes-child>li.active>a:focus {
+    background-color: transparent;
+    border: none;
+    border-bottom-color: transparent;
+    border-radius: 0;
+}
+.nav-tabs.nav-showtimes-child>li {
+    height: 52px;
+    width: 77px;
+}
+.nav-tabs.nav-showtimes-child>li>a > span {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    font-size: 11px;
+    color: #000;
+}
+.nav-tabs.nav-showtimes-child>li>a > em {
+    position: absolute;
+    top: 20px;
+    left: 4px;
+    font-size: 11px;
+    color: #000;
+}
+.nav-tabs.nav-showtimes-child>li>a > strong {
+    font-size: 32px;
+    font-weight: normal;
+    left: 31px;
+    line-height: 32px;
+    position: absolute;
+    top: 8px;
+}
+.nav-tabs.nav-showtimes-child>li.active>a{
+    color: #000!important;
+}
+.nav-tabs.nav-showtimes-child>li>a {
+    color: #717171;
+}
+.nav-tabs.nav-showtimes-child>li.active {
+    border: 2px solid #000;
+    border-radius: 5px;
+}
+.tab-content{
+    margin-top: 5%;
+}
+.titleFilm h3{
+    color: #222;
+    margin-right: 10px;
+    text-transform: uppercase;
+    font-weight: 400;
+    padding-bottom: 2%;
+}
+.img-film-left{
+    float: left;
+}
+.timeShow ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.timeShow ul li {
+     height: 48px;
+    width: 120px;
+    float: left;
+    margin: 2px;
+    text-align: center;
+    padding: 5px;
+}
+.clear-both {
+    clear: both;
+}
+hr {
+    border-bottom: 1px solid #000;
+}
+.details-right button{
+    margin-top: 4%;
+    margin-left: 27%;
+}
+.book{
+    margin-top: 4%;
+    margin-left: 27%;
+}
