@@ -1,0 +1,37 @@
+<br><br><br><br>
+<% if logged_in? %>
+  <div class="profile">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-3">
+        <div class="detail">
+          <h2 class="text-center"><b><%= t ".profile" %></b></h2>
+          <table class="table table-responsive">
+            <tbody>
+            <tr>
+              <td><%t ".name"%></td>
+              <td><%= @current_user.username %></td>
+            </tr>
+            <tr>
+              <td><%= t ".email" %></td>
+              <td><%= @current_user.email %></td>
+            </tr>
+            <tr>
+              <td><%= t ".sex" %></td>
+              <td><%= @current_user.sex %></td>
+            </tr>
+            <tr>
+              <td><%= t ".address" %></td>
+              <td><%= @current_user.address %></td>
+            </tr>
+            <tr>
+              <td><%= t ".phone" %></td>
+              <td><%= @current_user.phone %></td>
+            </tr>
+            </tbody>
+          </table>
+          <%= link_to t(".updateP"), edit_user_path(current_user), class: "btn btn-primary"%>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

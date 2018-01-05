@@ -4,7 +4,7 @@ class CreateSchedules < ActiveRecord::Migration[5.1]
       t.time :time
       t.date :date
       t.integer :price
-      t.integer :film_id
+      t.references :film, foreign_key: true
 
       t.timestamps
     end
