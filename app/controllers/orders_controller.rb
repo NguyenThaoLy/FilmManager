@@ -1,0 +1,26 @@
+class OrdersController < ApplicationController
+  before_action :logged_in_user, only: [:show]
+  def new
+
+    @schedules = Schedule.find_by id: params[:id]
+  end
+
+  def show
+    @schedules = Schedule.find_by id: params[:id]
+    @orders = Order.new
+  end
+
+  def create
+    @orders = Order.new order_params
+    if @orders.save
+      flash[:success] = t(".booked")
+      redirect_to root_path
+    end
+  end
+
+  private
+
+  def order_params
+    params.require(:order).permit(:user_id, :amount, :schedule_id)
+  end
+end

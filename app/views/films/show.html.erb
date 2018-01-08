@@ -1,0 +1,91 @@
+<div id="detail_film">
+  <div class="container">
+    <div class="row">
+    <% if @film %>
+      <div class="img-detail col-md-4">
+        <%= link_to image_tag(@film.poster) %>
+      </div>
+      <div class="content-detail col-md-8">
+        <h3><%= @film.name %></h3>
+        <p><STRONG>Time :</STRONG><%= @film.time%> minutes</p>
+        <p><STRONG>Directors :</STRONG><%= @film.directors %></p>
+        <p><strong>Actor :</strong><%= @film.actor %></p>
+        <STRONG>Movie content:</STRONG>
+        <p><%= @film.detail %></p>
+        <STRONG>Rate:</STRONG>
+
+        <p>
+          <i class="fa fa-star fa-lg" aria-hidden="true"></i>
+          <i class="fa fa-star fa-lg" aria-hidden="true"></i>
+          <i class="fa fa-star fa-lg" aria-hidden="true"></i>
+          <i class="fa fa-star fa-lg" aria-hidden="true"></i>
+          <i class="fa fa-star-half-o fa-lg" aria-hidden="true"></i>
+          <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
+          <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
+          <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
+          <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
+          <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
+        </p>
+        <a href="#" data-toggle="modal" data-target="#myModal"><button class="btn btn-primary">Booking</button></a>
+        <!-- Modal -->
+
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4>Please select a movie time</h4>
+                </div>
+                <div class="modal-body">
+                  <h3><%= @film.name %></h3>
+
+                  <ul class="nav">
+                    <% @film.schedules.each do |s| %>
+                      <li>
+                        <%= s.date %> <br> <br>
+                        <%= link_to (I18n.l s.time, format: "%H:%M"), order_path(s.id), class: "btntime btn btn-primary" %> <br>
+                      </li>
+                    <% end %>
+                  </ul>
+                </div>
+            </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+    <div class="row">
+      <div class="comment clearfix">
+        <div class="lfload">
+          <span>
+            <span class="countC">0 comment</span>
+          </span>
+        </div>
+        <div class="rfload">
+          <div>
+            <span class="pub">
+              Sort by
+            </span>
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                Oldest <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li><%= link_to "Oldest", "#" %></li>
+                <li><%= link_to "Newest", "#" %></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clear-both"></div>
+      <div class="col-md-1">
+        <%= link_to image_tag("li.jpg", alt: "li.jpg", :width => "100%") %>
+      </div>
+      <div class="col-md-11">
+        <textarea name="addComment" placeholder="Add a comment" rows="5" cols="100"></textarea>
+        <button type="submit" class="btn btn-primary">Post</button>
+      </div>
+    </div>
+  </div>
+</div>

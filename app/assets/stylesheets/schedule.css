@@ -152,7 +152,7 @@ h3 {
     color: $gray-silver;
 }
 .nav-tabs.nav-showtimes-child>li.active {
-    border: 2px solid;
+    border: 2px solid $black;
     border-radius: 5px;
 }
 .tab-content{
