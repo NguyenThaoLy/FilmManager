@@ -6,11 +6,9 @@ class StaticPagesController < ApplicationController
   def detailFilm
     @schedules = Schedule.includes(:film).find_by film_id: params[:id]
     @film = Film.film_show.find_by id: params[:id]
-    if @film
-      redirect_to root_path
-    else
-      flash[:error] = t"controllers.static_pages_controller.error"
-    end
+    return if @film
+    flash[:error] = t"controllers.static_pages_controller.error"
+    redirect_to root_path
   end
 
   def priceTicket; end
@@ -18,10 +16,8 @@ class StaticPagesController < ApplicationController
   def schedule
     @schedules = Schedule.includes(:film).schedule_info.order(:id)
     @film = Film.find_by id: params[:id]
-    if @film
-      redirect_to root_path
-    else
-      flash[:error] = t"controllers.static_pages_controller.error"
-    end
+    return if @film
+    flash[:error] = t"controllers.static_pages_controller.error"
+    redirect_to root_path
   end
 end
