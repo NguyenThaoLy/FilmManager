@@ -1,50 +1,51 @@
 h3,p{
-	font-family: serif;
+  font-family: serif;
 }
 #detail_film{
-	margin-top: 3%;
-}
-.content-detail a{
-    padding-left: 40%;
+  margin-top: 3%;
 }
 .content-detail h3{
-	font-weight: bold;
+  font-weight: bold;
 }
 .img-detail img{
-	width: 100%;
+  width: 100%;
 }
 .info {
-  background-color: #2196F3;
+  background-color: $vivid-blue;
   color: white;
   font-size: 18px;
   width: 100px;
 }
 .info:hover {
-	background: #0b7dda;
+	background: $blue;
 	color: white;
 }
 .comment{
-  border-bottom: 1px solid #e9ebee;
+  border-bottom: 1px solid $white;
   line-height: 25px;
   margin-bottom: 24px;
   margin-top: 5%;
   padding: 8px 0;
 }
 .clearfix{
-	zoom:1;
+  zoom:1;
 }
 .lfload{
-	float: left;
+  float: left;
 }
 .countC{
-	font-weight: bold;
+  font-weight: bold;
 }
 .rfload{
-	float: right;
+  float: right;
 }
 .pub{
-	color: #4b4f56;
+	color: $gray-medium;
 }
 .modal-body{
-	height: 500px;
+  height: 500px;
+}
+.btnok{
+  margin-left: 43%;
+  margin-top: 10%;
 }

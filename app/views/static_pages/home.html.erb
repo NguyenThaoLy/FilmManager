@@ -61,29 +61,30 @@
         </ul>
         <div class="tab-content clearfix">
           <div class="tab-pane active" id="phimdangchieu">
-            <div class="film col-md-3">
-              <%= link_to  image_tag("1.jpg", alt: "1.jpg"), detailFilm_path %>
-              <div class="des">
-                <p>Tam sinh tam thế</p>
-                <%= link_to "SEE DETAILS", detailFilm_path, class: "btn btn-danger"%>
-              </div>
-            </div>
-            <div class="film col-md-3">
-              <%= link_to  image_tag("2.jpg", alt: "2.jpg"), detailFilm_path%>
-              <div class="des">
-                <p>Chestnut work</p>
-                <%= link_to "SEE DETAILS", detailFilm_path, class: "btn btn-danger"%>
-              </div>
-            </div>
+            <% @films.each do |f| %>
+              <% if f.status == "1" %>
+                <div class="film col-md-3">
+                  <%= link_to  image_tag(f.poster), detailFilm_path(id: f.id) %>
+                  <div class="des">
+                    <p><%= f.name %></p>
+                    <%= link_to "SEE DETAILS", detailFilm_path(id: f.id), class: "btn btn-danger"%>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
           </div>
           <div class="tab-pane" id="phimsapchieu">
-            <div class="film col-md-3">
-              <%= link_to  image_tag("10.jpg", alt: "10.jpg"), detailFilm_path %>
-              <div class="des">
-                <p>MUMMIES</p>
-                <%= link_to "SEE DETAILS", detailFilm_path, class: "btn btn-danger"%>
-              </div>
-            </div>
+            <% @films.each do |f| %>
+              <% if f.status == "2" %>
+                <div class="film col-md-3">
+                  <%= link_to  image_tag(f.poster), detailFilm_path(id: f.id) %>
+                  <div class="des">
+                    <p><%= f.name %></p>
+                    <%= link_to "SEE DETAILS", detailFilm_path(id: f.id), class: "btn btn-danger"%>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>

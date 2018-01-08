@@ -14,8 +14,36 @@
                 <li><%= link_to "MOVIE", root_path %></li>
                 <li><%= link_to "MOVIE SCHEDULE", schedule_path %></li>
                 <li><%= link_to "FARE", priceTicket_path %></li>
-                <li><%= link_to "REGISTRATION", "#" %></li>
-                <li><%= link_to "LOG IN", "#" %></li>
+                <% if logged_in? && !current_user.try(:admin?) %>
+                  <li><%= @current_user.username %></li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      Account <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><%= link_to "Profile", current_user %></li>
+                      <li><%= link_to "Settings", '#' %></li>
+                      <li class="divider"></li>
+                      <li><%= link_to "Log out", logout_path, method: :delete %></li>
+                    </ul>
+                  </li>
+                <% elsif current_user.try(:admin?) %>
+                  <li><%= link_to @current_user.username, films_url %></li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      Account <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><%= link_to "Profile", current_user %></li>
+                      <li><%= link_to "Settings", '#' %></li>
+                      <li class="divider"></li>
+                      <li><%= link_to "Log out", logout_path, method: :delete %></li>
+                    </ul>
+                  </li>
+                <% else %>
+                  <li><%= link_to "REGISTRATION", signup_path %></li>
+                  <li><%= link_to "LOG IN", login_path %></li>
+                <% end %>
               </ul>
             </nav>
           </div>
@@ -24,11 +52,11 @@
           <div class="search-new">
             <%= link_to image_tag("new-offer-vn.png", alt: "new-offer-vn"), '/assets/images' %>
           </div>
-          <div class="search">
-            <form action="index_submit" method="get" accept-charset="utf-8">
+           <div class="search">
+            <form action="/search_results" method="get" accept-charset="utf-8">
               <div class="search-box">
-                <button type="submit"><i class="fa fa-search"></i></button>
-                <input type="text" name="" placeholder="Tìm kiếm">
+                  <input type="text" name="term" id="filter-autocomplete-search" class="ui-autocomplete-input" autocomplete="off">
+                  <input type="submit" name="commit" value="search" data-disable-with="search" class="sub">
               </div>
             </form>
           </div>

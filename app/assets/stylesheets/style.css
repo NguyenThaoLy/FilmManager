@@ -1,11 +1,11 @@
 body, button, input, select, table, textarea {
-    color: #222;
+    color: $gray-dark;
     font-family: "Helvetica Neue", Verdana, Arial, sans-serif;
     font-size: 14px;
     line-height: 18px;
 }
 ul{
-	list-style: none;
+    list-style: none;
 }
 /* header */
 .logo img{
@@ -20,7 +20,7 @@ ul{
     width: 100%;
 }
 .menu-top{
-	margin-top: 70px;
+    margin-top: 70px;
 }
 .menu-top nav ul{
     list-style: none;
@@ -49,32 +49,31 @@ ul{
     display: block;
 }
 .menu-top nav ul li:hover .menu-sub li a{
-	color: white;
+    color: white;
 }
 .menu-top nav ul li:hover .menu-sub li a:hover{
-	color: red;
+    color: red;
 }
 .margin-top .logo{
     margin-top: 30px;
     padding: 10px;
 }
 .search-new{
-	margin-top: 38px;
-	margin-bottom: 15px;
+    margin-top: 38px;
+    margin-bottom: 15px;
 }
 .search-box{
-    position: relative;
     border: 1px solid black;
     height: 25px;
     width: 50%;
 }
-.search-box button{
-    background: white;
-    border: none;
-    float: left;
-    width: 20%;
+.sub{
+    position: absolute;
+    margin-top: -1.5px;
+    margin-left: -30px;
 }
-.search-box input{
+.search-box #filter-autocomplete-search{
+    position: relative;
     border: none;
     width: 80%;
 }
@@ -147,7 +146,7 @@ ul{
 }
 .film img{
     border-radius: 5px;
-    border: 1px solid #ddd;
+    border: 1px solid $gray-e6;
     height: 300px;
     margin-left: 5%;
     padding: 5px;
@@ -168,7 +167,7 @@ ul{
     width: 100%;
 }
 .title img{
-    background-color: #FDFCF0;
+    background-color: $gray-less;
     padding-top: 9px;
 }
 #footer{
@@ -176,17 +175,17 @@ ul{
     margin-top: 5%;
 }
 .box h4{
-    color: #636B6F;
+    color: $gray63;
     font-size: 17px;
     text-align: center;
 }
 .box p{
-    color: #636B6F;
+    color: $gray63;
     font-size: 15px;
 }
 .box span{
-    background: #ffffff;
-    border: 1px dashed #E6E6E6;
+    background:$white;
+    border: 1px dashed $gray-e6;
     display: inline-block;
     letter-spacing: 2px;
     line-height: 27px;
@@ -194,7 +193,7 @@ ul{
     position: relative;
 }
 .box h4:before {
-    border-bottom: 1px dashed #E6E6E6;
+    border-bottom: 1px dashed $gray-e6;
     content: "";
     left: 5%;
     position: absolute;
@@ -202,19 +201,19 @@ ul{
     width: 90%;
 }
 .box h3 a{
-    color: #636B6F;
+    color: $gray63;
     font-size: 18px;
     margin-left: 30%;
 }
 .box h3 a:hover{
-    color: #F07421;
+    color: $orange;
 }
 .box a:hover{
-    color: #636B6F;
+    color: $gray63;
     text-decoration: none;
 }
 .part2{
-    background-color: #000000;
+    background-color: $black;
     color: white;
     height: 50px;
     padding-top: 1%;
@@ -223,19 +222,25 @@ ul{
     color: white;
 }
 .pullright a:hover{
-    color: #FFE793;
+    color: $orange-light;
     text-decoration: none;
 }
 .pullright a p{
     text-align: right;
 }
 .pullleft a{
-    color: #FFE793;
+    color: $orange-light;
 }
 .pullleft a:hover{
-    color: #ffffff;
+    color: $white;
     text-decoration: none;
 }
 .box address{
-    color: #636B6F;
+    color: $gray63;
+}
+.notice{
+    border: 1px solid $gray-light;
+    border-radius: 5px;
+    width: 40%;
+    background-color: $blude-bright;
 }

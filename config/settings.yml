@@ -1,7 +1,9 @@
 user:
-  name:
+  username:
     maximum: 50
   email:
     maximum: 255
   password:
     minimum: 6
+film:
+  paginates_per: 5

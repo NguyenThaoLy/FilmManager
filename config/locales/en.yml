@@ -14,3 +14,61 @@ en:
       sex: "sex:"
       address: "address:"
       phone: "phone:"
+    header:
+      login: "Log in"
+      home: "Home"
+      users: "Users"
+      account: "Account"
+      profile: "Profile"
+      settings: "Settings"
+      logout: "Logout"
+  users:
+    new:
+      signup: "SignUp"
+      confirmation: "Confirmation"
+      create: "Create my account"
+    show:
+      updateP: "Update profile"
+      profile: "Profile"
+  sessions:
+    new:
+      login: "Log in"
+      signup: "Sign up now!"
+      newuser: "New users?"
+    create:
+      invalid: "Invalid email/password combination"
+  shared:
+    error_messages:
+      contains: "The form contains"
+      error: "error"
+  controllers:
+    films_controler:
+      notice: "Successfully created film."
+      notice1: "Successfully updated film."
+      notice2: "Successfully deleted film."
+      error: "No found film."
+      danger: "Not delete film."
+    static_pages_controller:
+      error: "No found film."
+  films:
+    new:
+      title: "Film"
+      new: "Welcome to new film!"
+    index:
+      title: "All Films"
+      newfilm: "NewFilm"
+      edit: "Edit"
+      delete: "Delete"
+      sure: "You sure?"
+      name: "Name"
+      actor: "Actor"
+      duration: "Duration"
+      time: "Time"
+      director: "Director"
+      details: "Detail"
+      status: "Status"
+      poster: "Poster"
+      trailer: "Trailer"
+      category: "Category"
+
+
