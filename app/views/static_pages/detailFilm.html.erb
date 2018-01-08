@@ -1,22 +1,20 @@
+<% provide :title, "detailfilm" %>
 <div id="detail_film">
 	<div class="container">
 		<div class="row">
+		<% if @film %>
 			<div class="img-detail col-md-4">
-				<%= link_to image_tag("7.jpg", alt: "7.jpg") %>
+				<%= link_to image_tag(@film.poster) %>
 			</div>
 			<div class="content-detail col-md-8">
-				<h3>NHÓC TRÙM </h3>
-				<p><STRONG>Time :</STRONG>120 minutes</p>
-				<p><STRONG>Directors :</STRONG>.......</p>
-				<p><strong>Actor :</strong>.......</p>
+				<h3><%= @film.name %></h3>
+				<p><STRONG>Time :</STRONG><%= @film.time%> minutes</p>
+				<p><STRONG>Directors :</STRONG><%= @film.directors %></p>
+				<p><strong>Actor :</strong><%= @film.actor %></p>
 				<STRONG>Movie content:</STRONG>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p><%= @film.detail %></p>
 				<STRONG>Rate:</STRONG>
+
 				<p>
 					<i class="fa fa-star fa-lg" aria-hidden="true"></i>
 					<i class="fa fa-star fa-lg" aria-hidden="true"></i>
@@ -29,90 +27,39 @@
 					<i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
 					<i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
 				</p>
-				<a href="#" data-toggle="modal" data-target="#myModal"><button class="btn info">Booking</button></a>
+				<a href="#" data-toggle="modal" data-target="#myModal"><button class="btn btn-primary">Booking</button></a>
 				<!-- Modal -->
-              <div class="modal fade" id="myModal" role="dialog">
-                  <div class="modal-dialog">
-
-                      <!-- Modal content-->
-                      <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4>Please select a movie time</h4>
-                        </div>
-                        <div class="modal-body">
-													<h3>KINGSMAN : HOANG KIM ORGANIZATION</h3>
-													<div class="typeFilm">
-														<strong>2D Subtitles Viet</strong>
-													</div>
-													<div class="timeShow">
-														<ul>
-															<li>
-																<button type="button" class="btn btn-primary">16:20 PM</button>
-															</li>
-															<li>
-																<button type="button" class="btn btn-primary">18:00 PM</button>
-															</li>
-															<li>
-																<button type="button" class="btn btn-primary">20:30 PM</button>
-															</li>
-															<li>
-																<button type="button" class="btn btn-primary">22:20 PM</button>
-															</li>
-														</ul>
-													</div>
-													<div class="clear-both"></div>
-													<div class="typeFilm">
-														<strong>3D Subtitles Viet</strong>
-													</div>
-													<div class="timeShow">
-														<ul>
-															<li>
-																<button type="button" class="btn btn-primary">16:20 PM</button>
-															</li>
-															<li>
-																<button type="button" class="btn btn-primary">18:00 PM</button>
-															</li>
-															<li>
-																<button type="button" class="btn btn-primary">20:30 PM</button>
-															</li>
-															<li>
-																<button type="button" class="btn btn-primary">22:20 PM</button>
-															</li>
-														</ul>
-													</div>
-													<div class="clear-both"></div>
-													<a href="#" data-toggle="modal" data-target="#myModal2"><button type="submit" class="btn btn-danger">OK</button></a>
-													<!-- Modal -->
-						                <div class="modal fade" id="myModal2" role="dialog">
-						                    <div class="modal-dialog">
-						                        <!-- Modal content-->
-						                        <div class="modal-content">
-						                            <div class="modal-header">
-						                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-						                               	<p><STRONG>Note:</STRONG>Please capture the information screen and go to the cinema 30 minutes to pay and receive tickets. Thank you, happy to see the movie ^^</p>
-						                            </div>
-
-						                            <div class="modal-body">
-						                                <form action="#" method="post">
-						                                	<h4 class="modal-title">HOANG KIM ORGANIZATION</h4>
-						                                    <p><strong>Showtime: </strong>18:30</p>
-						                                    <p><strong>Fare: </strong>50000 VND</p>
-						                                    <hr>
-						                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						                                </form>
-						                            </div>
-						                        </div>
-						                    </div>
-						                </div>
-						              </div>
-	                      </div>
-
-	                  </div>
-	              </div>
-							</div>
-						</div>
+      	<div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4>Please select a movie time</h4>
+                </div>
+                <div class="modal-body">
+									<h3><%= @film.name %></h3>
+									<% if @schedules %>
+										<strong> Date of showing Film : <%= @schedules.date %></strong>
+									<% end %>
+									<div class="timeShow">
+										<ul>
+											<% @film.schedules.each do |s| %>
+												<li>
+														<button type="button" class="btn btn-primary"><%= s.time %></button>
+												</li>
+											<% end %>
+										</ul>
+									</div>
+									<div class="clear-both"></div>
+									<%= link_to "OK", bookticket_path(id: @film.id), class: "btnok btn btn-danger"%>
+		              </div>
+                </div>
+            </div>
+        </div>
+			</div>
+		<% end %>
+		</div>
 		<div class="row">
 			<div class="comment clearfix">
 				<div class="lfload">

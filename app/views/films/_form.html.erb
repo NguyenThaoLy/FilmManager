@@ -1,0 +1,33 @@
+<%= form_for @film do |f|%>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %>
+
+  <%= f.label :actor %>
+  <%= f.text_field :actor, class: "form-control" %><br>
+
+  <%= f.label :duration %>
+  <%= f.date_field :duration, class: "form-control" %><br>
+
+  <%= f.label :time %>
+  <%= f.text_field :time, class: "form-control" %><br>
+
+  <%= f.label :directors %>
+  <%= f.text_field :directors, class: "form-control" %><br>
+
+  <%= f.label :detail %>
+  <%= f.text_area :detail, class: "form-control" %><br>
+
+  <%= f.label :status %>
+  <%= f.text_field :status, class: "form-control" %><br>
+
+  <%= f.label :poster %>
+  <%= f.text_field :poster, class: "form-control" %><br>
+
+  <%= f.label :trailer %>
+  <%= f.text_field :trailer, class: "form-control" %><br>
+
+  <%= f.label :category_id %>
+  <%= f.collection_select :category_id, Category.order(:name), :id, :name, include_blank: true %> <br><br>
+
+   <%= f.submit "Create", class: "btn btn-primary" %>
+<% end %>
