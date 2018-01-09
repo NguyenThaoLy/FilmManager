@@ -14,12 +14,15 @@ gem "font-awesome-rails"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails", "4.3.1"
 gem "kaminari"
+gem "jquery-ui-rails"
 gem "mysql2", "~> 0.3.16"
 gem "puma", "~> 3.7"
+gem "font-awesome-rails"
 gem "rails", "~> 5.1.4"
 gem "sass-rails", "~> 5.0"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
+gem "will_paginate", "3.1.6"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

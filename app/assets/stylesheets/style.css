@@ -4,22 +4,25 @@ body, button, input, select, table, textarea {
     font-size: 14px;
     line-height: 18px;
 }
-ul{
+
+ul {
     list-style: none;
 }
 /* header */
-.logo img{
+.logo img {
     height: 66px;
     margin-top: 16%;
     width: 150px;
 }
-.menu{
+
+.menu {
     background: url("https://i.imgur.com/B48UTmf.png") left bottom / 10px 135px transparent;
     background-repeat: repeat-x;
     height: 135px ;
     width: 100%;
 }
-.menu-top{
+
+.menu-top {
     margin-top: 70px;
 }
 .menu-top nav ul{
@@ -32,118 +35,144 @@ ul{
     margin: 5px 10px;
     position: relative;
 }
-.menu-top nav ul li a{
+
+.menu-top nav ul li a {
     color: black;
     font-weight: bold;
     padding: 0px 8px;
     text-decoration: none;
 }
-.menu-top .menu-sub{
+
+.menu-top .menu-sub {
     display: none;
     padding: 20px 0px;
     position: absolute;
     width: 200px;
 }
-.menu-top nav ul li:hover .menu-sub{
+
+.menu-top nav ul li:hover .menu-sub {
     background: url(https://i.imgur.com/bWdivFu.png);
     display: block;
 }
-.menu-top nav ul li:hover .menu-sub li a{
+
+.menu-top nav ul li:hover .menu-sub li a {
     color: white;
 }
-.menu-top nav ul li:hover .menu-sub li a:hover{
+
+.menu-top nav ul li:hover .menu-sub li a:hover {
     color: red;
 }
-.margin-top .logo{
+
+.margin-top .logo {
     margin-top: 30px;
     padding: 10px;
 }
-.search-new{
+
+.search-new {
     margin-top: 38px;
     margin-bottom: 15px;
 }
+
 .search-box{
     border: 1px solid black;
     height: 25px;
     width: 50%;
 }
 .sub{
-    position: absolute;
-    margin-top: -1.5px;
-    margin-left: -30px;
+    width: 42%;
+    margin-left: 58%;
+    margin-top: -17%;
 }
-.search-box #filter-autocomplete-search{
-    position: relative;
+.filter{
     border: none;
     width: 80%;
 }
-.search-booking{
+.search-booking {
     float: right;
     margin-right: 9%;
     margin-top: -29%;
 }
-.sect-person{
+
+.sect-person {
     margin-bottom: 10px;
     margin-top: 15px;
     padding-bottom: 6px;
 }
-.sect-person ul{
+
+.sect-person ul {
     list-style: none;
     padding: 0;
 }
+
 .sect-person ul li {
     display: inline-block;
 }
-.sect-person ul li a{
+
+.sect-person ul li a {
     background-image: url(https://i.imgur.com/Dqow6OR.png);
     display: inline-block;
     height: 90px;
     width: 162px;
 }
+
 .sect-person ul li a.theater {
     background-position: 0px 0;
 }
+
 .sect-person ul li a.now-sh {
     background-position: -140px 0;
 }
+
 .sect-person ul li a.special {
     background-position: -280px 0;
 }
+
 .sect-person ul li a.arthouse {
     background-position: -420px 0;
 }
+
 .sect-person ul li a.contact {
     background-position: -560px 0;
 }
+
 .sect-person ul li a.new {
     background-position: -700px 0;
 }
+
 .sect-person ul li a.login {
     background-position: -830px 0;
 }
+
 .item img{
     width: 100%;
 }
+
 #slide-show img{
     height: 350px;
 }
+
 .filmCategory{
     margin-top: 5%;
 }
+
 .filmCategory ul{
     margin-bottom: 3%;
 }
+
 .film a{
     text-decoration: none;
 }
+
 .des{
     padding: 15px;
     text-align: center;
 }
+
 .des p{
     font-weight: bold;
     font-size: 16px;
 }
+
 .film img{
     border-radius: 5px;
     border: 1px solid $gray-e6;
@@ -152,12 +181,15 @@ ul{
     padding: 5px;
     width: 90%;
 }
+
 .film img:hover{
     box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
+
 .event{
     margin: 20px auto;
 }
+
 .title {
     background: url(https://i.imgur.com/pZnxP6T.jpg);
     background-position: left center;
@@ -166,42 +198,49 @@ ul{
     text-align: center;
     width: 100%;
 }
+
 .title img{
-    background-color: $gray-less;
+    background-color: #FDFCF0;
     padding-top: 9px;
 }
+
 #footer{
     font-family: serif;
     margin-top: 5%;
 }
+
 .box h4{
-    color: $gray63;
+    color: #636B6F;
     font-size: 17px;
     text-align: center;
 }
+
 .box p{
-    color: $gray63;
+    color: #636B6F;
     font-size: 15px;
 }
+
 .box span{
-    background:$white;
-    border: 1px dashed $gray-e6;
+    background: #ffffff;
+    border: 1px dashed #E6E6E6;
     display: inline-block;
     letter-spacing: 2px;
     line-height: 27px;
     padding: 0 10px;
     position: relative;
 }
+
 .box h4:before {
-    border-bottom: 1px dashed $gray-e6;
+    border-bottom: 1px dashed #E6E6E6;
     content: "";
     left: 5%;
     position: absolute;
     top: 25px;
     width: 90%;
 }
+
 .box h3 a{
-    color: $gray63;
+    color: #636B6F;
     font-size: 18px;
     margin-left: 30%;
 }
