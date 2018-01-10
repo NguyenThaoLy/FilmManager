@@ -4,8 +4,7 @@
     <%= paginate @films %>
     <table class="table table-bordered table-list">
         <thead>
-            <tr>
-                <th class="hidden-xs">ID</th>
+            <tr class="table-title">
                 <th><%= t ".name" %></th>
                 <th><%= t ".actor" %></th>
                 <th><%= t ".duration" %></th>
@@ -23,7 +22,6 @@
         <tbody>
             <% @films.each do |f| %>
             <tr>
-                <td class="hidden-xs"><%= f.id %></td>
                 <td><%= f.name %></td>
                 <td><%= f.actor %></td>
                 <td><%= f.duration %></td>

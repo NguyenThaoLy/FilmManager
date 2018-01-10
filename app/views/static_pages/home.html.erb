@@ -1,47 +1,35 @@
 <div id="content">
   <div class="container">
     <div class="row">
-      <div class="sect-person">
-        <ul>
-          <li><%= link_to "", class: "theater" %></li>
-          <li><%= link_to "", class: "now-sh" %></li>
-          <li><%= link_to "", class: "special" %></li>
-          <li><%= link_to "", class: "arthouse" %></li>
-          <li><%= link_to "", class: "contact" %></li>
-          <li><%= link_to "", class: "new" %></li>
-          <li><%= link_to "", class: "login" %></li>
-        </ul>
-      </div>
-      <!-- end sect-person -->
       <div id="slide-show" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-target="#slide-show" data-slide-to="0" class="active"></li>
-            <li data-target="#slide-show" data-slide-to="1"></li>
-              <li data-target="#slide-show" data-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner">
-              <div class="item active">
-                <%= link_to  image_tag("slide4.png", alt: "slide4.png"), '/assets/images' %>
-                <div class="carousel-caption">
-                </div>
+        <ol class="carousel-indicators">
+          <li data-target="#slide-show" data-slide-to="0" class="active"></li>
+          <li data-target="#slide-show" data-slide-to="1"></li>
+          <li data-target="#slide-show" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item active">
+              <%= link_to  image_tag("slide4.png", alt: "slide4.png") %>
+              <div class="carousel-caption">
               </div>
-              <div class="item">
-                <%= link_to  image_tag("slide5.png", alt: "slide5.png"), '/assets/images' %>
-                <div class="carousel-caption">
-                </div>
+            </div>
+            <div class="item">
+              <%= link_to  image_tag("slide5.png", alt: "slide5.png") %>
+              <div class="carousel-caption">
               </div>
-              <div class="item">
-                <%= link_to  image_tag("slide6.jpg", alt: "slide6.jpg"), '/assets/images' %>
-                <div class="carousel-caption">
-                </div>
+            </div>
+            <div class="item">
+              <%= link_to  image_tag("slide6.jpg", alt: "slide6.jpg") %>
+              <div class="carousel-caption">
               </div>
-            <a class="left carousel-control" href="#slide-show" data-slide="prev">
-              <span class="glyphicon glyphicon-chevron-left"></span>
-            </a>
-            <a class="right carousel-control" href="#slide-show" data-slide="next">
-              <span class="glyphicon glyphicon-chevron-right"></span>
-            </a>
-          </div>
+            </div>
+          <a class="left carousel-control" href="#slide-show" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+          <a class="right carousel-control" href="#slide-show" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </div>
       </div>
       <script>
         $('#slide-show').carousel({
@@ -92,7 +80,7 @@
     <div class="row">
       <div class="event">
         <div class="title">
-          <%= link_to  image_tag("h3_event.gif", alt: "h3_event.gif"), '/assets/images' %>
+          <%= image_tag("h3_event.gif", alt: "h3_event.gif") %>
         </div>
         <!-- Item slider-->
         <div class="col-xs-12 col-sm-12 col-md-12">

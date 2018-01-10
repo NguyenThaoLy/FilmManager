@@ -7,3 +7,9 @@ user:
     minimum: 6
 film:
   paginates_per: 5
+category:
+  paginates_per: 10
+schedule:
+  paginates_per: 7
+order:
+  paginates_per: 10

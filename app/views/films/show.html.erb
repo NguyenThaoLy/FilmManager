@@ -1,58 +1,58 @@
 <div id="detail_film">
   <div class="container">
     <div class="row">
-    <% if @film %>
-      <div class="img-detail col-md-4">
-        <%= link_to image_tag(@film.poster) %>
-      </div>
-      <div class="content-detail col-md-8">
-        <h3><%= @film.name %></h3>
-        <p><STRONG>Time :</STRONG><%= @film.time%> minutes</p>
-        <p><STRONG>Directors :</STRONG><%= @film.directors %></p>
-        <p><strong>Actor :</strong><%= @film.actor %></p>
-        <STRONG>Movie content:</STRONG>
-        <p><%= @film.detail %></p>
-        <STRONG>Rate:</STRONG>
-
-        <p>
-          <i class="fa fa-star fa-lg" aria-hidden="true"></i>
-          <i class="fa fa-star fa-lg" aria-hidden="true"></i>
-          <i class="fa fa-star fa-lg" aria-hidden="true"></i>
-          <i class="fa fa-star fa-lg" aria-hidden="true"></i>
-          <i class="fa fa-star-half-o fa-lg" aria-hidden="true"></i>
-          <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
-          <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
-          <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
-          <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
-          <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
-        </p>
-        <a href="#" data-toggle="modal" data-target="#myModal"><button class="btn btn-primary">Booking</button></a>
-        <!-- Modal -->
-
-        <div class="modal fade" id="myModal" role="dialog">
-          <div class="modal-dialog">
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4><%= t ".select_time" %></h4>
-                </div>
-                <div class="modal-body">
-                  <h3><%= @film.name %></h3>
-
-                  <ul class="nav">
-                    <% @film.schedules.each do |s| %>
-                      <li>
-                        <%= s.date %> <br> <br>
-                        <%= link_to (I18n.l s.time, format: "%H:%M"), order_path(s.id), class: "btntime btn btn-primary" %> <br>
-                      </li>
-                    <% end %>
-                  </ul>
-                </div>
-            </div>
+      <% if @film %>
+        <div class="img-detail col-md-4">
+          <%= link_to image_tag(@film.poster) %>
         </div>
-      </div>
-    <% end %>
+        <div class="content-detail col-md-8">
+          <h3><%= @film.name %></h3>
+          <p><STRONG>Time :</STRONG><%= @film.time%> minutes</p>
+          <p><STRONG>Directors :</STRONG><%= @film.directors %></p>
+          <p><strong>Actor :</strong><%= @film.actor %></p>
+          <STRONG>Movie content:</STRONG>
+          <p><%= @film.detail %></p>
+          <STRONG>Rate:</STRONG>
+
+          <p>
+            <i class="fa fa-star fa-lg" aria-hidden="true"></i>
+            <i class="fa fa-star fa-lg" aria-hidden="true"></i>
+            <i class="fa fa-star fa-lg" aria-hidden="true"></i>
+            <i class="fa fa-star fa-lg" aria-hidden="true"></i>
+            <i class="fa fa-star-half-o fa-lg" aria-hidden="true"></i>
+            <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
+            <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
+            <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
+            <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
+            <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
+          </p>
+          <a href="#" data-toggle="modal" data-target="#myModal"><button class="btn btn-primary">Booking</button></a>
+          <!-- Modal -->
+
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4><%= t ".select_time" %></h4>
+                  </div>
+                  <div class="modal-body">
+                    <h3><%= @film.name %></h3>
+
+                    <ul class="nav">
+                      <% @film.schedules.each do |s| %>
+                        <li>
+                          <%= s.date %> <br> <br>
+                          <%= link_to (I18n.l s.time, format: "%H:%M"), order_path(s.id), class: "btntime btn btn-primary" %> <br>
+                        </li>
+                      <% end %>
+                    </ul>
+                  </div>
+              </div>
+          </div>
+        </div>
+      <% end %>
     </div>
     <div class="row">
       <div class="comment clearfix">

@@ -1,3 +1,5 @@
+@import 'color';
+
 .lc-main-ticket-qc{
     margin-top: 2%;
     margin-bottom: 3%;
@@ -6,13 +8,13 @@
     width: 100%;
 }
 table,th,td {
-    border: 1px solid $gray-light;
+    border: 1px solid ;
+    border-color: $gray-light;
     border-collapse: collapse;
     text-align: center;
     line-height: 18px;
 }
-table {
-}
+
 .table-ticket-col1 {
     width: 16%;
 }
@@ -20,12 +22,13 @@ table {
     width: 42%;
 }
 .table-ticket-title {
-    background-color: $gray;
-    color: $white;
+    text-align: center;
+    background-color: #333;
+    color: #fff;
     font-size: 18px;
     font-weight: 300;
     margin: 0;
-    padding: 7px 0;
+    padding: 10px 0;
     text-transform: uppercase;
     width: 100%;
 }
@@ -91,8 +94,4 @@ table {
     margin: 10px;
     text-align: center;
     width: 100%;
-}
-.title img{
-    background-color: $gray-less;
-    padding-top: 9px;
 }

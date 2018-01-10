@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get  "/detailFilm", to: "static_pages#detailFilm"
   get  "/priceTicket", to: "static_pages#priceTicket"
   get  "/schedule", to: "static_pages#schedule"
+  get "/bookticket", to: "static_pages#bookticket"
   get "sessions/new"
   get "/signup", to: "users#new"
   get "/login", to: "sessions#new"
@@ -13,5 +14,9 @@ Rails.application.routes.draw do
   resources :users
   resources :orders
   resources :films
-
+  resources :users
+  resources :films
+  resources :categories
+  resources :orders
+  resources :schedules
 end
