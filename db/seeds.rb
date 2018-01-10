@@ -1,4 +1,4 @@
-User.create!(username: "admin", password: "admin1234", sex: "1", email: "admin@gmail.com", address: "Ha Noi", phone: "01693057613", admin: true)
+User.create!(username: "admin", password: "admin1234", sex: "1", email: "admin1234@gmail.com", address: "Ha Noi", phone: "01693057613", admin: true)
 Category.create!(name: "Action")
 Category.create!(name: "Romantic")
 Category.create!(name: "Adventure")
