@@ -1,11 +1,14 @@
 en:
-  notfind: can not find film
+  notfind: "can not find film"
   please: "Please log in."
   helpers:
     application_helper:
       title: "HHL"
     users_helper:
       please: "Please log in."
+  static_pages:
+    home:
+      point: "/10"
   layouts:
     application:
       title: "HHL"
@@ -23,10 +26,6 @@ en:
     show:
       see_detail: "SEE DETAILS"
   users:
-    new:
-      signup: "SignUp"
-      confirmation: "Confirmation"
-      create: "Create my account"
     show:
       update_p: "Update profile"
       profile: "Profile"
@@ -35,14 +34,6 @@ en:
       sex: "sex:"
       address: "address:"
       phone: "phone:"
-    header:
-      login: "Log in"
-      home: "Home"
-      users: "Users"
-      account: "Account"
-      profile: "Profile"
-      settings: "Settings"
-      logout: "Logout"
     index:
       title: "AdminUser"
       id: "ID"
@@ -51,6 +42,9 @@ en:
       email: "Email"
       address: "Address"
       phone: "Phone"
+    users:
+      delete: "Delete"
+      sure: "You sure?"
   sessions:
     new:
       login: "Log in"
@@ -95,14 +89,40 @@ en:
     reviews_controller:
       success: "Review created"
       deleted: "Deleted comment"
-      fail: "Delete fail!"
+      failed: "Delete fail!"
       error: "Comment failed"
+      notice: "Not found review"
+    orders_controller:
+      notice: "Successfully deleted !"
+      danger: "Please note: Tickets stop selling tickets online before 60 minutes.\n
+          If you can not buy tickets online, please go to the ticket booth at the National Cinema Center to buy tickets directly."
+    users_controller:
+      notice: "Successfully deleted !"
   films:
     new:
       title: "Film"
       new: "Welcome to new film!"
     index:
       title: "All Films"
+    show:
+      time: "Time : "
+      minutes: "minutes"
+      director: "Directors : "
+      actor: "Actors : "
+      content: "Movie content :"
+      rate: "Rate :"
+      select_time: "Please select a movie time"
+      placeholder: "Add a comment"
+      post: "Post"
+      average: "average"
+    comment:
+      comment: "Comment"
+      send: "Send by "
+      posted: ". Posted "
+      ago: "ago ."
+      delete: "Delete"
+      sure: "You sure?"
+    films:
       newfilm: "NewFilm"
       edit: "Edit"
       delete: "Delete"
@@ -118,21 +138,6 @@ en:
       poster: "Poster"
       trailer: "Trailer"
       category: "Category"
-    show:
-      time: "Time : "
-      minutes: "minutes"
-      director: "Directors : "
-      actor: "Actors : "
-      content: "Movie content :"
-      rate: "Rate :"
-      select_time: "Please select a movie time"
-      placeholder: "Add a comment"
-      post: "Post"
-    comment:
-      comment: "Comment"
-      send: "Send by "
-      posted: ". Posted "
-      ago: "ago ."
   orders:
     create:
       booked: "Book ticket successful!We will send ticket information and show hours to your phone number. Thank you!"
@@ -140,8 +145,19 @@ en:
       booking: "Booking"
     index:
       title: "OrderFilm"
-      id: "ID"
+    order:
+      delete: "Delete"
+      sure: "You sure?"
       name_id: "User_ID"
+      name_film: "Film_name"
+      name: "User_name"
+      amount: "Amount"
+      schedule_date: "Date show"
+      schedule_time: "Time show"
+    cart:
+      delete: "Delete"
+      sure: "You sure?"
+      name_film: "Film_name"
       name: "User_name"
       amount: "Amount"
       schedule_date: "Date show"
@@ -154,16 +170,20 @@ en:
       title: "Edit category"
     index:
       title: "Category"
+    new:
+      title: "Category"
+      create: "Create category film!"
+      back: "BACK"
+    categories:
       new: "NewCategory"
       id: "ID"
       name: "Name"
       edit: "Edit"
       delete: "Delete"
       sure: "You sure?"
-    new:
-      title: "Category"
-      create: "Create category film!"
-      back: "BACK"
+    edit_multiple:
+      contains: "The form contains"
+      error: "error"
   schedules:
     form:
       create: "Create"
@@ -172,6 +192,11 @@ en:
       update: "Update"
     index:
       title: "Schedule"
+    new:
+      title: "Schedule"
+      new: "Welcome to new schedule!"
+      back: "BACK"
+    schedule:
       new: "NewSchedule"
       id: "ID"
       time: "Time"
@@ -181,7 +206,7 @@ en:
       edit: "Edit"
       delete: "Delete"
       sure: "You sure?"
-    new:
-      title: "Schedule"
-      new: "Welcome to new schedule!"
-      back: "BACK"
+  models:
+    film:
+      error: "Should be less than 5MB"
+      average: "average"

@@ -1,0 +1,23 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3><%= "Editing #{@order.schedule.film.name}" %></h3>
+    </div>
+    <%= simple_form_for @order, remote: true do |f| %>
+      <div class="modal-body">
+        <ul class="errors"></ul>
+        <%= f.input :amount %>
+      </div>
+      <div class="modal-footer">
+        <div class="row">
+          <div class="col-md-3 col-md-offset-6">
+            <%= f.submit class: "btn btn-primary" %>
+          </div>
+          <div class="col-md-2">
+            <%= link_to "Cancel", "#", class: "btn btn-primary", data: {dismiss: "modal"} %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

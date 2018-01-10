@@ -1,0 +1,14 @@
+<% @carts.each do |f| %>
+  <tr>
+    <td><%= f.user.username %></td>
+    <td><%= f.schedule.film.name %></td>
+    <td><%= f.amount %></td>
+    <td><%= f.schedule.date  %></td>
+    <td><%= I18n.l f.schedule.time, format: Settings.orders.format %></td>
+    <td><%= f.status %></td>
+    <td><%= link_to "", edit_order_path(f.id), remote: true, class: "btn btn-success glyphicon glyphicon-pencil" %></td>
+    <td>
+      <%= link_to "", f, method: :delete, data: {confirm: t(".sure")}, class: "btn btn-danger glyphicon glyphicon-trash" %>
+    </td>
+  </tr>
+<% end %>

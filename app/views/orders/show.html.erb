@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
 
-    <%= form_for @orders do |f| %>
+    <%= form_for @order do |f| %>
 
       <%= f.label :username %>
       <span><%= current_user.username %></span>
@@ -11,13 +11,13 @@
       <%= f.hidden_field :user_id, value: current_user.id %>
 
       <%= f.label :time %>
-      <span><%= (I18n.l @schedules.time, format: "%H:%M") %></span>
+      <span><%= (I18n.l @schedule.time, format: Settings.orders.format) %></span>
       <br>
 
       <%= f.label :date %>
-      <span><%= @schedules.date %></span>
+      <span><%= @schedule.date %></span>
       <br>
-      <%= f.hidden_field :schedule_id, value: @schedules.id %>
+      <%= f.hidden_field :schedule_id, value: @schedule.id %>
 
       <%= f.label :amount %>
       <%= f.text_field :amount, class: "form-control" %>

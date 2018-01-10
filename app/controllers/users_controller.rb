@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :admin_user, only: [:index]
+  before_action :admin_user, only: [:index, :destroy]
   def index
     @users = User.user_info.order(:id).page params[:page]
   end
@@ -12,24 +12,19 @@ class UsersController < ApplicationController
     end
   end
 
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.new user_params
-    if @user.save
-      flash[:success] = t :welcome
-      redirect_to @user
-    else
-      render :new
+  def destroy
+    @user = User.find_by id: params[:id]
+    unless @user
+      flash[:danger] = t :notfind
+      redirect_to root_url
     end
-  end
-
-  private
-
-  def user_params
-    params.require(:user).permit :username, :email, :phone, :address, :sex,
-      :password, :password_confirmation
+    @user.destroy
+    respond_to do |format|
+      format.html do
+        flash[:notice] = t "controllers.users_controller.notice"
+        redirect_to users_url
+      end
+      format.js
+    end
   end
 end

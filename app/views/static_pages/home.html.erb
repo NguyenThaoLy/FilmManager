@@ -47,12 +47,12 @@
             <a href="#phimsapchieu" data-toggle="tab"><h4>UPCOMING MOVIE</h4></a>
           </li>
         </ul>
-        <div class="tab-content clearfix">
+        <div class="tab-content clearfix" id="films">
           <div class="tab-pane active" id="phimdangchieu">
             <% @films.each do |f| %>
               <% if f.status == "1" %>
                 <div class="film col-md-3">
-                  <%= link_to  image_tag(f.poster), film_path(id: f.id) %>
+                  <%= link_to  image_tag(f.poster), film_path(id: f.id) if f.poster? %>
                   <div class="des">
                     <p><%= f.name %></p>
                     <%= link_to "SEE DETAILS", film_path(id: f.id), class: "btn btn-danger"%>
@@ -63,63 +63,20 @@
           </div>
           <div class="tab-pane" id="phimsapchieu">
             <% @films.each do |f| %>
-              <% if f.status == "2" %>
-                <div class="film col-md-3">
-                  <%= link_to  image_tag(f.poster), film_path(id: f.id) %>
-                  <div class="des">
-                    <p><%= f.name %></p>
-                    <%= link_to "SEE DETAILS", film_path(f), class: "btn btn-danger"%>
-                  </div>
+            <% if f.status == "2" %>
+              <div class="film col-md-3">
+                <%= link_to  image_tag(f.poster), film_path(id: f.id) %>
+                <div class="des">
+                  <p><%= f.name %></p>
+                  <%= link_to "SEE DETAILS", film_path(f), class: "btn btn-danger"%>
                 </div>
-              <% end %>
+              </div>
+            <% end %>
             <% end %>
           </div>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="event">
-        <div class="title">
-          <%= image_tag("h3_event.gif", alt: "h3_event.gif") %>
-        </div>
-        <!-- Item slider-->
-        <div class="col-xs-12 col-sm-12 col-md-12">
-          <div class="carousel carousel-showmanymoveone slide" id="eventslider">
-            <div class="carousel-inner">
-                <div class="item active">
-                  <div class="col-xs-12 col-sm-6 col-md-3">
-                    <%= link_to  image_tag("item1.jpg", alt: "item1.jpg"), class: "img-responsive" %>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="col-xs-12 col-sm-6 col-md-3">
-                    <%= link_to  image_tag("item2.jpg", alt: "item2.jpg"), class: "img-responsive" %>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="col-xs-12 col-sm-6 col-md-3">
-                    <%= link_to  image_tag("item3.jpg", alt: "item3.jpg"), class: "img-responsive" %>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="col-xs-12 col-sm-6 col-md-3">
-                    <%= link_to  image_tag("item4.png", alt: "item4.png"), class: "img-responsive" %>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="col-xs-12 col-sm-6 col-md-3">
-                    <%= link_to image_tag("item5.jpg", alt: "item5.jpg"), class: "img-responsive" %>
-                  </div>
-                </div>
-              </div>
-            <div id="slider-event-control">
-             <%= link_to(image_tag("en.png", alt: "Left", class: "img-responsive"), "#", class: "left carousel-control", :'data-slide' => "prev") %>
-             <%= link_to(image_tag("right.png", alt: "Right", class: "img-responsive"), "#", class: "right carousel-control", :'data-slide' => "next") %>
-            </div>
-          </div>
-        </div>
-        <!-- Item slider end-->
-      </div>
-    </div>
+   <%= render "slider" %>
   </div>
 </div>

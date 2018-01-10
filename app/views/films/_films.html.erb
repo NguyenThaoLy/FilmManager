@@ -1,0 +1,83 @@
+<div class="row" style="margin-top: 5%">
+  <div class="col-md-2">
+    <%= render "admin/sidebar_admin" %>
+  </div>
+  <div class="col-md-10">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="container">
+          <div class="col-md-2">
+            <%= link_to t(".newfilm"), new_film_path, class: "btn btn-primary glyphicon glyphicon-arrow-left" %>
+          </div>
+          <div id="searchform" class="col-md-7 col-md-offset-2">
+            <%= render "searchform" %>
+          </div>
+        </div>
+      </div>
+      <div class="panel-body">
+        <table class="table table-hover table-bordered">
+          <thead>
+            <tr class="table-title">
+              <th><%= t ".name" %></th>
+              <th><%= t ".actor" %></th>
+              <th><%= t ".duration" %></th>
+              <th><%= t ".time" %></th>
+              <th><%= t ".director" %></th>
+              <th><%= t ".details" %></th>
+              <th><%= t ".status" %></th>
+              <th><%= t ".poster" %></th>
+              <th><%= t ".trailer" %></th>
+              <th><%= t ".category" %></th>
+              <th colspan="2"></th>
+            </tr>
+          </thead>
+          <tbody class="film-index">
+            <% @films.each do |f| %>
+              <tr>
+                <td><%= f.name %></td>
+                <td><%= f.actor %></td>
+                <td><%= f.duration %></td>
+                <td><%= f.time %></td>
+                <td><%= f.directors %></td>
+                <td>
+                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#<%= f.id %>">Learn</button>
+                  <div class="modal fade" id="<%= f.id %>" role="dialog">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title"><span class="glyphicon glyphicon-star-empty"></span><strong><%= f.name %></strong><span class="glyphicon glyphicon-star-empty"></span></h4>
+                        </div>
+                        <div class="modal-body">
+                          <div class="markdown">
+                            <p><%= markdown f.detail %></p>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td><%= f.status %></td>
+                <td><%= image_tag f.poster.small.url if f.poster? %></td>
+                <td><%= f.trailer %></td>
+                <td><%= f.category.name %></td>
+                <td>
+                    <%= link_to "", edit_film_path(f.id), class: "btn btn-success glyphicon glyphicon-pencil" %>
+                </td>
+                <td>
+                    <% if current_user.try :admin? %>
+                        <%= link_to "", f, method: :delete, data: {confirm: t(".sure")}, class: "btn btn-danger glyphicon glyphicon-trash" %>
+                    <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+         <%= paginate @films,remote: true, theme: "twitter-bootstrap-3" %>
+      </div>
+    </div>
+  </div>
+</div>

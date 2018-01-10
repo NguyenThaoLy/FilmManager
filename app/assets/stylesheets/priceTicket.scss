@@ -8,10 +8,11 @@
     width: 100%;
 }
 table,th,td {
-    border: 1px solid ;
-    border-color: $gray-light;
     border-collapse: collapse;
     text-align: center;
+    font-size: 13.5px;
+    border: 1px solid ;
+    border-color: $gray-light;
     line-height: 18px;
 }
 

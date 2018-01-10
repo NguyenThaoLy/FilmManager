@@ -10,12 +10,21 @@
   </head>
   <body>
     <%= render "layouts/header" %>
-    <div class="container">
-      <% flash.each do |message_type, message| %>
-        <div class="notice alert alert-<%= message_type %>"><%= message %></div>
-      <% end %>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <% flash.each do |message_type, message| %>
+            <div class="notice alert alert-<%= message_type %>"><%= message %></div>
+          <% end %>
+        </div>
+      </div>
       <%= yield %>
     </div>
     <%= render "layouts/footer" %>
+    <script>
+      $(document).ready(function(){
+        $(".notice").fadeOut(2000);
+      });
+    </script>
   </body>
 </html>

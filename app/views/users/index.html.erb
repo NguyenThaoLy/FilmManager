@@ -1,27 +1,4 @@
 <% provide :title , t(".title") %>
-<div class="showadmin">
-  <%= paginate @users %>
-  <table class="table table-bordered table-list">
-    <thead>
-      <tr class="table-title">
-          <th><%= t ".username" %></th>
-          <th><%= t ".sex" %></th>
-          <th><%= t ".email" %></th>
-          <th><%= t ".address" %></th>
-          <th><%= t ".phone" %></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @users.each do |f| %>
-      <tr>
-          <td><%= f.username %></td>
-          <td><%= f.sex %></td>
-          <td><%= f.email %></td>
-          <td><%= f.address %></td>
-          <td><%= f.phone %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <%= paginate @users %>
+<div id="users">
+  <%= render "users" %>
 </div>

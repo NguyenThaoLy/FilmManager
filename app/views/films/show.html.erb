@@ -1,35 +1,26 @@
-<div id="detail_film">
-  <div class="row">
-    <% if @film %>
-      <div class="img-detail col-md-4">
-        <%= link_to image_tag(@film.poster) %>
-      </div>
-      <div class="content-detail col-md-8">
-        <h3><%= @film.name %></h3>
-        <p><STRONG><%= t".time" %></STRONG><%= @film.time%><%= t".minutes" %></p>
-        <p><STRONG><%= t".director" %></STRONG><%= @film.directors %></p>
-        <p><strong><%= t".actor" %></strong><%= @film.actor %></p>
-        <STRONG><%= t".content" %></STRONG>
-        <p><%= @film.detail %></p>
-        <STRONG><%= t".rate" %></STRONG>
-
-        <p>
-          <i class="fa fa-star fa-lg" aria-hidden="true"></i>
-          <i class="fa fa-star fa-lg" aria-hidden="true"></i>
-          <i class="fa fa-star fa-lg" aria-hidden="true"></i>
-          <i class="fa fa-star fa-lg" aria-hidden="true"></i>
-          <i class="fa fa-star-half-o fa-lg" aria-hidden="true"></i>
-          <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
-          <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
-          <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
-          <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
-          <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
-        </p>
-        <a href="#" data-toggle="modal" data-target="#myModal"><button class="btn btn-primary">Booking</button></a>
-        <!-- Modal -->
-
-        <div class="modal fade" id="myModal" role="dialog">
-          <div class="modal-dialog">
+<div class="container">
+  <div id="detail_film">
+    <div class="row">
+      <% if @film %>
+        <div class="img-detail col-md-4">
+          <%= link_to image_tag @film.poster.large.url if @film.poster? %>
+        </div>
+        <div class="content-detail col-md-8">
+          <h3><%= @film.name %></h3>
+          <p><STRONG><%= t ".time" %></STRONG><%= @film.time%><%= t ".minutes" %></p>
+          <p><STRONG><%= t ".director" %></STRONG><%= @film.directors %></p>
+          <p><strong><%= t ".actor" %></strong><%= @film.actor %></p>
+          <STRONG><%= t ".content" %></STRONG>
+          <p><%= @film.detail %></p>
+          <STRONG><%= t ".rate" %></STRONG>
+          <p>
+            <%= rating_for @film, t(".average"), disable_after_rate: false, enable_half: true, half_show: false, star: 10 %>
+          </p>
+          <div id="noti"></div>
+          <a href="#" data-toggle="modal" data-target="#myModal"><button class="btn btn-primary">Booking</button></a>
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
               <!-- Modal content-->
               <div class="modal-content">
                 <div class="modal-header">
@@ -38,33 +29,53 @@
                 </div>
                 <div class="modal-body">
                   <h3><%= @film.name %></h3>
-
-                  <ul class="nav">
-                    <% @film.schedules.each do |s| %>
-                      <li>
-                        <%= s.date %> <br> <br>
-                        <%= link_to (I18n.l s.time, format: Settings.films.format), order_path(s.id), class: "btntime btn btn-primary" %> <br>
-                      </li>
+                  <ul class="nav nav-tabs">
+                    <% @arr.each do |date| %>
+                      <% if (I18n.l Time.now, format: Settings.films.format_ngay)<=(I18n.l date,
+                        format: Settings.films.format_ngay) %>
+                        <li>
+                          <a href="#<%= date %>" data-toggle="tab">
+                          <span><%= I18n.l date, format: Settings.films.format_y %></span>
+                          <em><%= I18n.l date, format: Settings.films.format_m %></em>
+                          <strong><%= I18n.l date, format: Settings.films.format_day %></strong>
+                          </a>
+                        </li>
+                      <% end %>
                     <% end %>
                   </ul>
+                  <div class="tab-content clearfix">
+                    <% @arr.each do |date| %>
+                      <div class="tab-pane fade" id="<%= date %>" >
+                        <% Schedule.find_time_by_date(@film.id, date).each do |id, time| %>
+                          <div class="film col-md-2">
+                            <%= hidden_field :schedule_id, value: id %>
+                            <%= link_to (I18n.l time, format: Settings.films.format_gio), order_path(id: id), class: "btn btn-primary" %> <br>
+                          </div>
+                        <% end %>
+                      </div>
+                    <% end %>
                 </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="clear-both"></div>
-  <div class="row" id="form-review">
-  <% if logged_in? %>
-    <%= form_for @reviews do |r|%>
-      <%= r.text_area :content, placeholder: t(".placeholder"), class: "form-control", :rows => "3" %>
-      <%= r.hidden_field :film_id, value: @film.id, class: "form-control" %>
-      <%= r.submit t(".post"), class: "btn btn-primary" %>
-    <% end %>
-  <% end %>
-  </div>
-  <div class="row" id="reviewUser">
-    <%= render "comment" %>
+      <% end %>
+    </div>
+    <div class="clear-both"></div>
+    <div class="row" id="form-review">
+      <% if user_signed_in? %>
+        <%= simple_form_for @review do |r|%>
+          <%= r.text_area :content, placeholder: t(".placeholder"), class: "form-control", :rows => "2" %>
+          <%= r.hidden_field :film_id, value: @film.id, class: "form-control" %>
+          <%= r.submit t(".post"), class: "btn btn-primary" %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="row" id="reviewUser">
+      <%= render "comment" %>
+    </div>
   </div>
 </div>
-

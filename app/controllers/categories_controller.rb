@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :find_Category, only: [:edit, :update, :destroy]
   before_action :admin_user, only: [:index, :new, :create, :edit, :update, :destroy]
+  before_action :find_multiple, only: [:edit_multiple, :update_multiple]
 
   def index
     @categories = Category.category_info.order(:id).page params[:page]
@@ -13,7 +14,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new category_params
     if @category.save
-      flash[:notice] = t"controllers.categories_controller.notice"
+      flash[:notice] = t "controllers.categories_controller.notice"
       redirect_to categories_url
     else
       render :new
@@ -24,7 +25,7 @@ class CategoriesController < ApplicationController
 
   def update
     if @category.update_attributes category_params
-      flash[:notice1] = t"controllers.categories_controller.notice1"
+      flash[:notice1] = t "controllers.categories_controller.notice1"
       redirect_to categories_url
     else
       render :edit
@@ -32,17 +33,30 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    if @category.destroy
-      flash[:notice2] = t"controllers.categories_controller.notice2"
+    @category.destroy
+    respond_to do |format|
+      format.html do
+        flash[:notice2] = t "controllers.categories_controller.notice2"
+        redirect_to categories_url
+      end
+      format.js
+    end
+  end
+
+  def edit_multiple; end
+
+  def update_multiple
+    if @categories.each do |c|
+        category.update_attributes!(params[:category_params].reject { |k,v| v.blank? })
+      end
+      flash[:notice1] = t "controllers.categories_controller.notice1"
       redirect_to categories_url
     else
-      flash[:danger] = t"controllers.categories_controller.danger"
-      redirect_to categories_url
+       render :edit_multiple
     end
   end
 
   private
-
   def category_params
     params.require(:category).permit :name
   end
@@ -50,7 +64,14 @@ class CategoriesController < ApplicationController
   def find_Category
     @category = Category.find_by id: params[:id]
     return if @category
-    flash[:error] = t"controllers.categories_controller.error"
+    flash[:error] = t "controllers.categories_controller.error"
+    redirect_to root_path
+  end
+
+  def find_multiple
+    @categories = Category.find_by id: params[:category_ids]
+    return if @categories
+    flash[:error] = t "controllers.categories_controller.error"
     redirect_to root_path
   end
 end
