@@ -1,6 +1,7 @@
 en:
   notfind: can not find film
   please: "Please log in."
+  welcome: "Welcome to the HHL cinema"
   helpers:
     application_helper:
       title: "HHL"
@@ -10,8 +11,9 @@ en:
     application:
       title: "HHL"
     header:
-      login: "LOG IN"
       home: "Home"
+      account: "Account"
+      login: "LOG IN"
       profile: "Profile"
       settings: "Settings"
       logout: "Log out"
@@ -19,6 +21,15 @@ en:
       movie_schu: "MOVIE SCHEDULE"
       fake: "FARE"
       registration: "REGISTRATION"
+  users:
+    show:
+      updateP: "Update profile"
+      profile: "Profile"
+      name: "name:"
+      email: "email:"
+      sex: "sex:"
+      address: "address:"
+      phone: "phone:"
   searches:
     show:
       see_detail: "SEE DETAILS"
@@ -170,4 +181,7 @@ en:
       title: "Schedule"
       new: "Welcome to new schedule!"
       back: "BACK"
+  static_pages:
+    home:
+      see_detail: "SEE DETAILS"
 

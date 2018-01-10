@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get "search", to: "searches#index"
   get "search_results", to: "searches#show"
+
   resources :users
   resources :orders
   resources :films
