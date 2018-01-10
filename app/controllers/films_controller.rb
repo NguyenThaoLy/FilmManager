@@ -6,6 +6,7 @@ class FilmsController < ApplicationController
     @schedules = Schedule.includes(:film).find_by film_id: params[:id]
     @comments = Review.comment(params[:id]).page params[:page]
     @reviews = current_user.reviews.build if logged_in?
+    Array @arr = Schedule.find_date(@film.id)
   end
 
   def index
