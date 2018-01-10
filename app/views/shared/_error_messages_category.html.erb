@@ -1,7 +1,7 @@
 <% if @category.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger">
-      <%= t ".contains" %> <%= pluralize(@category.errors.count, t(".error")) %>.
+      <%= t ".contains" %> <%= pluralize @category.errors.count, t(".error") %>.
     </div>
     <ul>
     <% @category.errors.full_messages.each do |msg| %>

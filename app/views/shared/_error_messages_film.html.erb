@@ -1,7 +1,7 @@
 <% if @film.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger">
-      <%= t ".contains" %> <%= pluralize(@film.errors.count, t(".error")) %>.
+      <%= t ".contains" %> <%= pluralize @film.errors.count, t(".error") %>.
     </div>
     <ul>
     <% @film.errors.full_messages.each do |msg| %>
