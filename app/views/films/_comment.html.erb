@@ -9,7 +9,7 @@
   <div class="col-md-10">
     <p><%= c.content %></p>
     <p><%= t(".send") %><strong><%= c.user.username %></strong><%= t(".posted") %><%= time_ago_in_words(c.created_at) %> <%= t(".ago") %></p>
-    <% if logged_in? %>
+    <% if user_signed_in? %>
       <%= link_to "Delete", c, method: :delete, data: {confirm: "You sure?"} %>
     <% end %>
   </div>

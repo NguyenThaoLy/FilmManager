@@ -1,0 +1,10 @@
+<%= form_for :q, url: search_path, class: "form-inline", method: :get, remote: true do |f| %>
+  <div class="search-box">
+    <div class="filter">
+      <%= f.text_field :name_cont %><br>
+    </div>
+    <div class="sub">
+      <%= f.submit "Search" %>
+    </div>
+  </div>
+<% end %>

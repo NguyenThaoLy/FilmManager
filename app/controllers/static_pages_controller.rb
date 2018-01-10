@@ -1,9 +1,11 @@
 class StaticPagesController < ApplicationController
   def home
-    @films = Film.film_show.order(:id)
+    @films = Film.film_show.order(:created_at)
   end
 
   def priceTicket; end
 
-  def schedule; end
+  def schedule
+    Array @brr = Schedule.date
+  end
 end

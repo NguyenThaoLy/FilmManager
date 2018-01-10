@@ -8,4 +8,5 @@ class Film < ApplicationRecord
     :time, :directors, :detail, :status, :poster, :trailer, :category_id }
   scope :film_show, -> {select :id, :name, :actor, :time,
     :directors, :detail, :status, :poster }
+  scope :find_film_by_date, ->(id){where(id: id).pluck(:id, :name, :poster)}
 end

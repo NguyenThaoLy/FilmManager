@@ -47,31 +47,31 @@
             <a href="#phimsapchieu" data-toggle="tab"><h4>UPCOMING MOVIE</h4></a>
           </li>
         </ul>
-        <div class="tab-content clearfix">
+        <div class="tab-content clearfix" id="films">
           <div class="tab-pane active" id="phimdangchieu">
             <% @films.each do |f| %>
-              <% if f.status == "1" %>
-                <div class="film col-md-3">
-                  <%= link_to  image_tag(f.poster), film_path(id: f.id) %>
-                  <div class="des">
-                    <p><%= f.name %></p>
-                    <%= link_to "SEE DETAILS", film_path(id: f.id), class: "btn btn-danger"%>
-                  </div>
-                </div>
+            <% if f.status == "1" %>
+            <div class="film col-md-3">
+              <%= link_to  image_tag(f.poster), film_path(id: f.id) %>
+              <div class="des">
+              <p><%= f.name %></p>
+                <%= link_to "SEE DETAILS", film_path(id: f.id), class: "btn btn-danger"%>
+              </div>
+            </div>
               <% end %>
             <% end %>
           </div>
           <div class="tab-pane" id="phimsapchieu">
             <% @films.each do |f| %>
-              <% if f.status == "2" %>
-                <div class="film col-md-3">
-                  <%= link_to  image_tag(f.poster), film_path(id: f.id) %>
-                  <div class="des">
-                    <p><%= f.name %></p>
-                    <%= link_to "SEE DETAILS", film_path(f), class: "btn btn-danger"%>
-                  </div>
+            <% if f.status == "2" %>
+              <div class="film col-md-3">
+                <%= link_to  image_tag(f.poster), film_path(id: f.id) %>
+                <div class="des">
+                  <p><%= f.name %></p>
+                  <%= link_to "SEE DETAILS", film_path(f), class: "btn btn-danger"%>
                 </div>
-              <% end %>
+              </div>
+            <% end %>
             <% end %>
           </div>
         </div>
