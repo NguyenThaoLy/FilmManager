@@ -128,11 +128,14 @@ en:
       select_time: "Please select a movie time"
       placeholder: "Add a comment"
       post: "Post"
+      average: "average"
     comment:
       comment: "Comment"
       send: "Send by "
       posted: ". Posted "
       ago: "ago ."
+      delete: "Delete"
+      sure: "You sure?"
   orders:
     create:
       booked: "Book ticket successful!We will send ticket information and show hours to your phone number. Thank you!"
@@ -185,3 +188,7 @@ en:
       title: "Schedule"
       new: "Welcome to new schedule!"
       back: "BACK"
+  models:
+    film:
+      error: "Should be less than 5MB"
+      average: "average"

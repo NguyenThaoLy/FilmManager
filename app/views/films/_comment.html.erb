@@ -1,5 +1,5 @@
 <div class="comment">
-  <span class="countC"><%= @comments.total_count %> <%= t(".comment") %></span>
+  <span class="countC"><%= @comments.total_count %> <%= t ".comment" %></span>
 </div>
 <div class="clear-both"></div>
 <% @comments.each do |c| %>
@@ -10,10 +10,10 @@
     <p><%= c.content %></p>
     <p><%= t(".send") %><strong><%= c.user.username %></strong><%= t(".posted") %><%= time_ago_in_words(c.created_at) %> <%= t(".ago") %></p>
     <% if logged_in? %>
-      <%= link_to "Delete", c, method: :delete, data: {confirm: "You sure?"} %>
+      <%= link_to t(".delete"), c, method: :delete, data: {confirm: t(".sure")} %>
     <% end %>
   </div>
   <div class="clear-both"></div>
   <hr>
 <% end %>
-<%= paginate @comments, remote: true, :theme => "twitter-bootstrap-3" %>
+<%= paginate @comments, remote: true, theme: "twitter-bootstrap-3" %>
