@@ -12,7 +12,7 @@
             <nav>
               <ul>
                 <li><%= link_to t(".movie"), root_path %></li>
-                <li><%= link_to t(".movie_schu"), schedule_path %></li>
+                <li><%= link_to t(".movie_schu"), scheduleFilm_path %></li>
                 <li><%= link_to t(".fake"), priceTicket_path %></li>
                 <% if logged_in? && !current_user.try(:admin?) %>
                   <li><%= @current_user.username %></li>

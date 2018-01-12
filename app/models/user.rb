@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :rates
   paginates_per Settings.user.paginates_per
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_many :orders
 
   before_save {email.downcase!}
