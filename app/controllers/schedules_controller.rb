@@ -3,7 +3,8 @@ class SchedulesController < ApplicationController
   before_action :admin_user, only: [:index, :new, :create, :edit, :update, :destroy]
 
   def index
-    @schedules = Schedule.schedule_info.order(:id).page params[:page]
+    @search = Schedule.schedule_info.ransack params[:q]
+    @schedules = @search.result.order(date: :desc).page params[:page]
   end
 
   def new
@@ -25,7 +26,7 @@ class SchedulesController < ApplicationController
   def update
     if @schedule.update_attributes schedule_params
       flash[:notice1] = t"controllers.schedules_controller.notice1"
-      redirect_to @schedule
+      redirect_to schedules_path
     else
       render :edit
     end
@@ -34,14 +35,15 @@ class SchedulesController < ApplicationController
   def destroy
     if @schedule.destroy
       flash[:notice2] = t"controllers.schedules_controller.notice2"
-      redirect_to schedules_url
+      redirect_to schedules_path
     else
       flash[:danger] = t"controllers.schedules_controller.danger"
-      redirect_to schedules_url
+      redirect_to schedules_path
     end
   end
 
   private
+
   def schedule_params
     params.require(:schedule).permit :time, :date, :price, :film_id
   end
@@ -50,6 +52,6 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.find_by id: params[:id]
     return if @schedule
     flash[:error] = t"controllers.schedules_controller.error"
-    redirect_to root_path
+    redirect_to schedules_path
   end
 end

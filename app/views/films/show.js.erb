@@ -1,0 +1,2 @@
+$('#reviewUser').html('<%= j render "comment" %>');
+$('#pagination').html('<%= j paginate(@comments, remote: true).to_s %>');

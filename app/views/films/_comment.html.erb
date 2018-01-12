@@ -1,0 +1,19 @@
+<div class="comment">
+  <span class="countC"><%= @comments.total_count %> <%= t(".comment") %></span>
+</div>
+<div class="clear-both"></div>
+<% @comments.each do |c| %>
+  <div class="col-md-1">
+    <%= link_to image_tag("li.jpg", alt: "li.jpg") %>
+  </div>
+  <div class="col-md-10">
+    <p><%= c.content %></p>
+    <p><%= t(".send") %><strong><%= c.user.username %></strong><%= t(".posted") %><%= time_ago_in_words(c.created_at) %> <%= t(".ago") %></p>
+    <% if logged_in? %>
+      <%= link_to "Delete", c, method: :delete, data: {confirm: "You sure?"} %>
+    <% end %>
+  </div>
+  <div class="clear-both"></div>
+  <hr>
+<% end %>
+<%= paginate @comments, remote: true, :theme => "twitter-bootstrap-3" %>
