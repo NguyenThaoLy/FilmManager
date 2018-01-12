@@ -1,0 +1,18 @@
+@import 'color';
+
+.adminsidebar li{
+  width: 100%;
+  border-bottom: 1px solid $gray-silver;
+}
+
+#searchinput{
+  width: 56%;
+}
+
+#searchname{
+  width: 35%;
+}
+
+#searchdate{
+  width: 35%;
+}

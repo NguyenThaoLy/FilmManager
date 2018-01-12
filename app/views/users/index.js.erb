@@ -1,0 +1,2 @@
+$('#users').html('<%= j render "users" %>');
+$('#pagination').html('<%= j paginate(@users, remote: true).to_s %>')
