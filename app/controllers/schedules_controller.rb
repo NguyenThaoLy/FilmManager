@@ -42,6 +42,7 @@ class SchedulesController < ApplicationController
   end
 
   private
+
   def schedule_params
     params.require(:schedule).permit :time, :date, :price, :film_id
   end
