@@ -55,7 +55,7 @@
   </div>
   <div class="clear-both"></div>
   <div class="row" id="form-review">
-  <% if logged_in? %>
+  <% if user_signed_in? %>
     <%= form_for @reviews do |r|%>
       <%= r.text_area :content, placeholder: t(".placeholder"), class: "form-control", :rows => "3" %>
       <%= r.hidden_field :film_id, value: @film.id, class: "form-control" %>
