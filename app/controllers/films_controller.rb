@@ -4,6 +4,8 @@ class FilmsController < ApplicationController
 
   def show
     @schedules = Schedule.includes(:film).find_by film_id: params[:id]
+    @comments = Review.comment(params[:id]).page params[:page]
+    @reviews = current_user.reviews.build if logged_in?
   end
 
   def index
@@ -46,6 +48,7 @@ class FilmsController < ApplicationController
   end
 
   private
+
   def film_params
     params.require(:film).permit :name, :actor, :duration, :time, :directors, :detail, :status, :poster, :trailer, :category_id
   end
