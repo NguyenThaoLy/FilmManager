@@ -1,6 +1,5 @@
-<%= form_for @category do |f|%>
-  <%= f.label :name %>
-  <%= f.text_field :name, class: "form-control" %><br>
-
-   <%= f.submit t(".create"), class: "btn btn-primary" %>
+<%= simple_form_for  @category  do |f| %>
+  <%= render "shared/error_messages_category" %>
+  <%= f.input :name, required: true %>
+  <%= f.button :submit, class: "btn-primary" %>
 <% end %>

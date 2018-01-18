@@ -1,0 +1,3 @@
+$('#schedule').html('<%= j render "schedule" %>');
+$('#searchform').html('<%= j render "searchform" %>')
+$('#pagination').html('<%= j paginate(@schedules, remote: true) %>');

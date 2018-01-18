@@ -92,6 +92,11 @@ en:
       notice2: "Successfully deleted schedule."
       error: "No found schedule."
       danger: "Not delete schedule."
+    reviews_controller:
+      success: "Review created"
+      deleted: "Deleted comment"
+      fail: "Delete fail!"
+      error: "Comment failed"
   films:
     new:
       title: "Film"
@@ -114,9 +119,20 @@ en:
       trailer: "Trailer"
       category: "Category"
     show:
+      time: "Time : "
+      minutes: "minutes"
+      director: "Directors : "
+      actor: "Actors : "
+      content: "Movie content :"
+      rate: "Rate :"
       select_time: "Please select a movie time"
-      comment: "0 comment"
-      sort: "Sort by"
+      placeholder: "Add a comment"
+      post: "Post"
+    comment:
+      comment: "Comment"
+      send: "Send by "
+      posted: ". Posted "
+      ago: "ago ."
   orders:
     create:
       booked: "Book ticket successful!We will send ticket information and show hours to your phone number. Thank you!"
@@ -130,7 +146,6 @@ en:
       amount: "Amount"
       schedule_date: "Date show"
       schedule_time: "Time show"
-
   categories:
     form:
       create: "Create"
@@ -170,4 +185,6 @@ en:
       title: "Schedule"
       new: "Welcome to new schedule!"
       back: "BACK"
-
+  models:
+    film:
+      error: "Should be less than 5MB"
