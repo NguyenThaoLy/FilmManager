@@ -13,3 +13,8 @@ schedule:
   paginates_per: 7
 order:
   paginates_per: 10
+review:
+  paginates_per: 5
+  maximum: 200
+films:
+  format: "%H:%M"
