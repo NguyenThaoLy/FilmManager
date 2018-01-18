@@ -40,7 +40,7 @@
                     <ul class="nav nav-tabs">
                       <% @arr.each do |date| %>
                         <li>
-                          <a href="#<%= date %>" data-toggle="tab"><h4><%= I18n.l date, format: "%d/%m/%Y" %></h4></a>
+                          <a href="#<%= date %>" data-toggle="tab"><h4><%= I18n.l date, format: Settings.films.format_ngay %></h4></a>
                         </li>
                       <% end %>
                     </ul>
@@ -50,7 +50,7 @@
                           <% Schedule.find_time_by_date(@film.id, date).each do |id, time| %>
                             <div class="film col-md-3">
                               <%= hidden_field :schedule_id, value: id %>
-                              <%= link_to (I18n.l time, format: "%H:%M"), order_path(id: id), class: "btn btn-primary" %> <br>
+                              <%= link_to (I18n.l time, format: Settings.films.format_gio), order_path(id: id), class: "btn btn-primary" %> <br>
                             </div>
                           <% end %>
                         </div>

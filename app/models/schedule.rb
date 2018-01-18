@@ -10,4 +10,8 @@ class Schedule < ApplicationRecord
   end)
 
   scope :find_date, ->(film_id){where(film_id: film_id).distinct.pluck(:date)}
+
+  scope :date, ->{distinct.order(:date).pluck(:date)}
+
+  scope :film_by_date, ->(date){where(date: date).distinct.pluck(:film_id)}
 end

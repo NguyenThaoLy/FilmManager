@@ -5,5 +5,7 @@ class StaticPagesController < ApplicationController
 
   def priceTicket; end
 
-  def schedule; end
+  def schedule
+    Array @brr = Schedule.date
+  end
 end

@@ -17,4 +17,8 @@ review:
   paginates_per: 5
   maximum: 200
 films:
-  format: "%H:%M"
+  format_gio: "%H:%M"
+  format_ngay: "%d/%m/%Y"
+  format_day: "%d"
+  format_m: "%m"
+  format_y: "%Y"
