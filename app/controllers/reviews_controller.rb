@@ -6,10 +6,10 @@ class ReviewsController < ApplicationController
     @reviews = current_user.reviews.build review_params
     if @reviews.save
       flash[:success] = t"controllers.reviews_controller.success"
-      redirect_to film_path(@reviews.film)
+      redirect_to film_path @reviews.film
     else
       flash[:error] = t"controllers.reviews_controller.error"
-      redirect_to film_path(@reviews.film)
+      redirect_to films_url
     end
   end
 
@@ -17,10 +17,10 @@ class ReviewsController < ApplicationController
     @reviews = Review.find_by id: params[:id]
     if @reviews.destroy
       flash[:deleted] = t"controllers.reviews_controller.deleted"
-      redirect_to request.referrer || film_path(@reviews.film)
+      redirect_to request.referrer || film_path @reviews.film
     else
       flash[:fail] = t"controllers.reviews_controller.fail"
-      redirect_to request.referrer || film_path(@reviews.film)
+      redirect_to films_url
     end
   end
 
@@ -33,7 +33,7 @@ class ReviewsController < ApplicationController
   def correct_user
     @review = current_user.reviews.find_by id: params[:id]
     return if @review
-      flash[:fail] = t"controllers.reviews_controller.fail"
-      redirect_to request.referrer || film_path(@reviews.film)
+    flash[:fail] = t"controllers.reviews_controller.fail"
+    redirect_to request.referrer || film_path @reviews.film
   end
 end

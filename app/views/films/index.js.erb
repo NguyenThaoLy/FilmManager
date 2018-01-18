@@ -1,0 +1,3 @@
+$('#films').html('<%= j render "films" %>');
+$('#searchform').html('<%= j render "searchform" %>')
+$('#pagination').html('<%= j paginate(@films, remote: true).to_s %>');

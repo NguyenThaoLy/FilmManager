@@ -18,3 +18,5 @@ review:
   maximum: 200
 films:
   format: "%H:%M"
+orders:
+  format: "%H:%M"

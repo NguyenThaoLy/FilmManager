@@ -6,25 +6,16 @@
       </div>
       <div class="content-detail col-md-8">
         <h3><%= @film.name %></h3>
-        <p><STRONG><%= t".time" %></STRONG><%= @film.time%><%= t".minutes" %></p>
-        <p><STRONG><%= t".director" %></STRONG><%= @film.directors %></p>
-        <p><strong><%= t".actor" %></strong><%= @film.actor %></p>
-        <STRONG><%= t".content" %></STRONG>
+        <p><STRONG><%= t ".time" %></STRONG><%= @film.time%><%= t ".minutes" %></p>
+        <p><STRONG><%= t ".director" %></STRONG><%= @film.directors %></p>
+        <p><strong><%= t ".actor" %></strong><%= @film.actor %></p>
+        <STRONG><%= t ".content" %></STRONG>
         <p><%= @film.detail %></p>
-        <STRONG><%= t".rate" %></STRONG>
-
+        <STRONG><%= t ".rate" %></STRONG>
         <p>
-          <i class="fa fa-star fa-lg" aria-hidden="true"></i>
-          <i class="fa fa-star fa-lg" aria-hidden="true"></i>
-          <i class="fa fa-star fa-lg" aria-hidden="true"></i>
-          <i class="fa fa-star fa-lg" aria-hidden="true"></i>
-          <i class="fa fa-star-half-o fa-lg" aria-hidden="true"></i>
-          <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
-          <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
-          <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
-          <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
-          <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
+          <%= rating_for @film, t(".average"), disable_after_rate: false, enable_half: true, half_show: false, star: 10 %>
         </p>
+        <div id="noti"></div>
         <a href="#" data-toggle="modal" data-target="#myModal"><button class="btn btn-primary">Booking</button></a>
         <!-- Modal -->
 

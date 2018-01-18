@@ -11,7 +11,7 @@
       <%= f.hidden_field :user_id, value: current_user.id %>
 
       <%= f.label :time %>
-      <span><%= (I18n.l @schedules.time, format: "%H:%M") %></span>
+      <span><%= (I18n.l @schedules.time, format: Settings.orders.format) %></span>
       <br>
 
       <%= f.label :date %>

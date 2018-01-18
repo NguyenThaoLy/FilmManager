@@ -9,7 +9,8 @@ class FilmsController < ApplicationController
   end
 
   def index
-    @films = Film.film_info.order(:id).page params[:page]
+    @search = Film.film_info.ransack params[:q]
+    @films = @search.result.order(created_at: :desc).page params[:page]
   end
 
   def new

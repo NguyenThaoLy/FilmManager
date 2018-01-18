@@ -3,31 +3,20 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for @user do |f| %>
+    <%= simple_form_for @user do |f| %>
       <%= render "shared/error_messages" %>
-
-      <%= f.label :username %>
-      <%= f.text_field :username, class: "form-control" %>
-
-      <%= f.label :email %>
-      <%= f.email_field :email, class: "form-control" %>
-
-      <%= f.label :phone %>
-      <%= f.text_field :phone, class: "form-control" %>
-
-      <%= f.label :address %>
-      <%= f.text_field :address, class: "form-control" %>
-
-      <%= f.label :sex %>
-      <%= f.text_field :sex, class: "form-control" %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password, class: "form-control" %>
-
-      <%= f.label :password_confirmation, t(".confirmation") %>
-      <%= f.password_field :password_confirmation, class: "form-control" %>
-
-      <%= f.submit t(".create"), class: "btn btn-primary" %>
+      <%= f.input :username, label: 'Your username please', error: 'Username is mandatory, please specify one' %>
+      <%= f.input :email, placeholder: "thaolyno1@gmail.com" %><br>
+      <div class="input-group">
+        <div class="input-group-addon">+84</div>
+        <%= f.input :phone,label:false, placeholder: "your phone number" %>
+      </div>
+      <br>
+      <%= f.input :address %>
+      <%= f.input :sex, collection: 1..2%>
+      <%= f.input :password, hint: 'No special characters.' %>
+      <%= f.input :password_confirmation %>
+      <%= f.button :submit, class: "btn btn-primary"  %>
     <% end %>
   </div>
 </div>
