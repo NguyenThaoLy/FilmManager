@@ -50,14 +50,14 @@
         <div class="tab-content clearfix" id="films">
           <div class="tab-pane active" id="phimdangchieu">
             <% @films.each do |f| %>
-            <% if f.status == "1" %>
-            <div class="film col-md-3">
-              <%= link_to  image_tag(f.poster), film_path(id: f.id) %>
-              <div class="des">
-              <p><%= f.name %></p>
-                <%= link_to "SEE DETAILS", film_path(id: f.id), class: "btn btn-danger"%>
-              </div>
-            </div>
+              <% if f.status == "1" %>
+                <div class="film col-md-3">
+                  <%= link_to  image_tag(f.poster), film_path(id: f.id) %>
+                  <div class="des">
+                    <p><%= f.name %></p>
+                    <%= link_to "SEE DETAILS", film_path(id: f.id), class: "btn btn-danger"%>
+                  </div>
+                </div>
               <% end %>
             <% end %>
           </div>

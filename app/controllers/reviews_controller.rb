@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :authenticate_user!, only: [:create, :destroy]
   before_action :correct_user, only: :destroy
 
   def create
@@ -16,10 +16,10 @@ class ReviewsController < ApplicationController
   def destroy
     @reviews = Review.find_by id: params[:id]
     if @reviews.destroy
-      flash[:deleted] = t"controllers.reviews_controller.deleted"
+      flash[:deleted] = t "controllers.reviews_controller.deleted"
       redirect_to request.referrer || film_path(@reviews.film)
     else
-      flash[:fail] = t"controllers.reviews_controller.fail"
+      flash[:fail] = t "controllers.reviews_controller.fail"
       redirect_to request.referrer || film_path(@reviews.film)
     end
   end
