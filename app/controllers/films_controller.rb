@@ -5,7 +5,7 @@ class FilmsController < ApplicationController
   def show
     @schedules = Schedule.includes(:film).find_by film_id: params[:id]
     @comments = Review.comment(params[:id]).page params[:page]
-    @reviews = current_user.reviews.build if logged_in?
+    @reviews = current_user.reviews.build if user_signed_in?
   end
 
   def index
