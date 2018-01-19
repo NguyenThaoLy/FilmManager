@@ -1,4 +1,4 @@
-<% if logged_in? %>
+<% if user_signed_in? %>
   <div class="profile">
     <div class="row">
       <div class="col-md-4 col-md-offset-3">
@@ -8,27 +8,26 @@
             <tbody>
             <tr>
               <td><%= t ".name" %></td>
-              <td><%= @current_user.username %></td>
+              <td><%= current_user.username %></td>
             </tr>
             <tr>
               <td><%= t ".email" %></td>
-              <td><%= @current_user.email %></td>
+              <td><%= current_user.email %></td>
             </tr>
             <tr>
               <td><%= t ".sex" %></td>
-              <td><%= @current_user.sex %></td>
+              <td><%= current_user.sex %></td>
             </tr>
             <tr>
               <td><%= t ".address" %></td>
-              <td><%= @current_user.address %></td>
+              <td><%= current_user.address %></td>
             </tr>
             <tr>
               <td><%= t ".phone" %></td>
-              <td><%= @current_user.phone %></td>
+              <td><%= current_user.phone %></td>
             </tr>
             </tbody>
           </table>
-          <%= link_to t(".update_p"), edit_user_path(current_user), class: "btn btn-primary"%>
         </div>
       </div>
     </div>
