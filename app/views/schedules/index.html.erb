@@ -1,37 +1,37 @@
 <% provide :title , t(".title") %>
 <div class="showadmin">
-    <%= link_to t(".new"), new_schedule_path, class: "btn btn-primary glyphicon glyphicon-arrow-left" %>
-    <br>
-    <%= paginate @schedules %>
-    <table class="table table-bordered table-list">
-        <thead>
-            <tr class="table-title">
-                <th><%= t(".time") %></th>
-                <th><%= t(".date") %></th>
-                <th><%= t(".price") %></th>
-                <th><%= t(".film") %></th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <% @schedules.each do |f| %>
-            <tr>
-                <td><%= I18n.l f.time, format: "%H:%M"%></td>
-                <td><%= f.date %></td>
-                <td><%= f.price %></td>
-                <td><%= f.film.name %></td>
-                <td>
-                    <%= link_to t(".edit"), edit_schedule_path(f.id) %>
-                </td>
-                <td>
-                    <% if current_user.try :admin? %>
-                        <%= link_to t(".delete"), f, method: :delete, data: {confirm: t(".sure")}, class: "glyphicon glyphicon-trash" %>
-                    <% end %>
-                </td>
-            </tr>
-            <% end %>
-        </tbody>
-    </table>
-    <%= paginate @schedules %>
+  <%= link_to t(".new"), new_schedule_path, class: "btn btn-primary glyphicon glyphicon-arrow-left" %>
+  <br>
+  <%= paginate @schedules %>
+  <table class="table table-bordered table-list">
+    <thead>
+      <tr class="table-title">
+        <th><%= t(".time") %></th>
+        <th><%= t(".date") %></th>
+        <th><%= t(".price") %></th>
+        <th><%= t(".film") %></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @schedules.each do |f| %>
+      <tr>
+        <td><%= I18n.l f.time, format: "%H:%M"%></td>
+        <td><%= f.date %></td>
+        <td><%= f.price %></td>
+        <td><%= f.film.name %></td>
+        <td>
+          <%= link_to t(".edit"), edit_schedule_path(f.id) %>
+        </td>
+        <td>
+          <% if current_user.try :admin? %>
+            <%= link_to t(".delete"), f, method: :delete, data: {confirm: t(".sure")}, class: "glyphicon glyphicon-trash" %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @schedules %>
 </div>
