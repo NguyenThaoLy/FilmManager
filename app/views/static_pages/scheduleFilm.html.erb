@@ -1,0 +1,56 @@
+<% provide :title, "Schedule" %>
+<div class="container">
+  <div class="row">
+    <div class="sect-person">
+      <ul>
+        <li><%= link_to "", class: "theater" %></li>
+        <li><%= link_to "", class: "now-sh" %></li>
+        <li><%= link_to "", class: "special" %></li>
+        <li><%= link_to "", class: "arthouse" %></li>
+        <li><%= link_to "", class: "contact" %></li>
+        <li><%= link_to "", class: "new" %></li>
+        <li><%= link_to "", class: "login" %></li>
+      </ul>
+    </div>
+    <div class="scheduleFilm">
+      <ul class="nav nav-tabs nav-showtimes-child">
+        <% @brr.each do |date| %>
+          <% if (I18n.l Time.now, format: Settings.films.format_ngay)<=(I18n.l date,
+            format: Settings.films.format_ngay) %>
+            <li>
+              <a href="#<%= date %>" data-toggle="tab">
+              <span><%= I18n.l date, format: Settings.films.format_y %></span>
+              <em><%= I18n.l date, format: Settings.films.format_m %></em>
+              <strong><%= I18n.l date, format: Settings.films.format_day %></strong>
+              </a>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+      <div class="tab-content clearfix">
+        <% @brr.each do |date| %>
+          <div class="tab-pane fade" id="<%= date %>" >
+            <% Film.find_film_by_date(Schedule.film_by_date(date)).each do |idfilm, namefilm, poster| %>
+              <div class="col-md-6">
+                <div class="film col-md-6">
+                  <%= link_to image_tag(poster), film_path(idfilm) %>
+                  <div class="des">
+                    <p><%= namefilm %></p>
+                  </div>
+                </div>
+                <div class="film col-md-6">
+                  <% Schedule.find_time_by_date(idfilm, date).each do |id, time| %>
+                    <div class="scheduleTime">
+                      <%= hidden_field :schedule_id, value: id %>
+                      <%= link_to (I18n.l time, format: Settings.films.format_gio), order_path(id), class: "btn btn-primary" %> <br>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

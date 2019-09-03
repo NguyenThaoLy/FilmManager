@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="cart-title">
+        <% if user_signed_in? %>
+          <h3>Your cart's <%= current_user.username %></h3>
+          <p>All changes will be made within 1 hour after booking. Thank you and have a nice day !</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr class="table-title">
+          <th><%= t ".name" %></th>
+          <th><%= t ".name_film" %></th>
+          <th><%= t ".amount" %></th>
+          <th><%= t ".schedule_date" %></th>
+          <th><%= t ".schedule_time" %></th>
+          <th>Status</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+      <tbody id="cart-index">
+        <%= render "cart" %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div id="cart-modal" class="modal fade"></div>

@@ -1,0 +1,60 @@
+<div class="row" style="margin-top: 5%">
+  <div class="col-md-2">
+    <%= render "admin/sidebar_admin" %>
+  </div>
+  <div class="col-md-10">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="container">
+          <div class="col-md-2">
+            <%= link_to t(".new"), new_schedule_path, class: "btn btn-primary glyphicon glyphicon-arrow-left" %>
+          </div>
+          <div id="searchform" class="col-md-7 col-md-offset-2">
+            <%= render "searchform" %>
+          </div>
+        </div>
+      </div>
+      <div class="panel-body">
+      <%= form_tag delete_multiple_schedules_path, method: :delete do  %>
+        <table class="table table-hover table-bordered">
+          <thead>
+            <tr class="table-title">
+              <th></th>
+              <th><%= t(".time") %></th>
+              <th><%= t(".date") %></th>
+              <th><%= t(".price") %></th>
+              <th><%= t(".film") %></th>
+              <th colspan="2"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @schedules.each do |f| %>
+            <tr>
+              <td><%= check_box_tag "schedules_ids[]", f.id %></td>
+              <td><%= I18n.l f.time, format: "%H:%M"%></td>
+              <td><%= f.date %></td>
+              <td><%= f.price %></td>
+              <td><%= f.film.name %></td>
+              <td>
+                  <%= link_to "", edit_schedule_path(f.id), class: "btn btn-success glyphicon glyphicon-pencil" %>
+              </td>
+              <td>
+                <% if current_user.try :admin? %>
+                  <%= link_to "", f, method: :delete, data: {confirm: t(".sure")}, class: "btn btn-danger glyphicon glyphicon-trash" %>
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <div class="row">
+          <div class="col-md-2">
+            <%= submit_tag "Delete_all_checked", class: "btn btn-primary" %>
+          </div>
+        </div>
+        <%= paginate @schedules,remote: true, :theme => "twitter-bootstrap-3" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

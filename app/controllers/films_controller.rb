@@ -3,13 +3,14 @@ class FilmsController < ApplicationController
   before_action :admin_user, only: [:index, :new, :create, :edit, :update, :destroy]
 
   def show
-    @schedules = Schedule.includes(:film).find_by film_id: params[:id]
     @comments = Review.comment(params[:id]).page params[:page]
-    @reviews = current_user.reviews.build if logged_in?
+    @review = current_user.reviews.build if user_signed_in?
+    Array @arr = Schedule.find_date(@film.id)
   end
 
   def index
-    @films = Film.film_info.order(:id).page params[:page]
+    @search = Film.film_info.ransack params[:q]
+    @films = @search.result.order(created_at: :desc).order(:status).page params[:page]
   end
 
   def new
@@ -19,7 +20,7 @@ class FilmsController < ApplicationController
   def create
     @film = Film.new film_params
     if @film.save
-      flash[:notice] = t"controllers.films_controler.notice"
+      flash[:notice] = t "controllers.films_controler.notice"
       redirect_to films_url
     else
       render :new
@@ -30,7 +31,7 @@ class FilmsController < ApplicationController
 
   def update
     if @film.update_attributes film_params
-      flash[:notice1] = t"controllers.films_controler.notice1"
+      flash[:notice1] = t "controllers.films_controler.notice1"
       redirect_to films_url
     else
       render :edit
@@ -38,17 +39,17 @@ class FilmsController < ApplicationController
   end
 
   def destroy
-    if @film.destroy
-      flash[:notice2] = t"controllers.films_controler.notice2"
-      redirect_to films_url
-    else
-      flash[:danger] = t"controllers.films_controler.danger"
-      redirect_to films_url
+    @film.destroy
+    respond_to do |format|
+      format.html do
+        flash[:notice2] = t "controllers.films_controler.notice2"
+        redirect_to films_url
+      end
+      format.js
     end
   end
 
   private
-
   def film_params
     params.require(:film).permit :name, :actor, :duration, :time, :directors, :detail, :status, :poster, :trailer, :category_id
   end
@@ -56,7 +57,7 @@ class FilmsController < ApplicationController
   def find_film
     @film = Film.find_by id: params[:id]
     return if @film
-    flash[:error] = t"controllers.films_controler.error"
+    flash[:error] = t "controllers.films_controler.error"
     redirect_to root_path
   end
 end

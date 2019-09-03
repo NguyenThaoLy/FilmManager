@@ -1,31 +1,36 @@
 class ReviewsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :authenticate_user!, only: [:create, :destroy]
   before_action :correct_user, only: :destroy
+  before_action :find_review, only: :destroy
 
   def create
-    @reviews = current_user.reviews.build review_params
-    if @reviews.save
-      flash[:success] = t"controllers.reviews_controller.success"
-      redirect_to film_path(@reviews.film)
+    @review = current_user.reviews.build review_params
+    if @review.save
+      respond_to do |format|
+        format.html do
+          flash[:success] = t "controllers.reviews_controller.success"
+          redirect_to film_path @review.film
+        end
+        format.js
+      end
     else
-      flash[:error] = t"controllers.reviews_controller.error"
-      redirect_to film_path(@reviews.film)
+      flash[:error] = t "controllers.reviews_controller.error"
+      redirect_to root_path
     end
   end
 
   def destroy
-    @reviews = Review.find_by id: params[:id]
-    if @reviews.destroy
-      flash[:deleted] = t"controllers.reviews_controller.deleted"
-      redirect_to request.referrer || film_path(@reviews.film)
-    else
-      flash[:fail] = t"controllers.reviews_controller.fail"
-      redirect_to request.referrer || film_path(@reviews.film)
+    @review.destroy
+    respond_to do |format|
+      format.html do
+        flash[:deleted] = t "controllers.reviews_controller.success"
+        redirect_to film_path @review.film
+      end
+      format.js
     end
   end
 
   private
-
   def review_params
     params.require(:review).permit :content, :film_id
   end
@@ -33,7 +38,14 @@ class ReviewsController < ApplicationController
   def correct_user
     @review = current_user.reviews.find_by id: params[:id]
     return if @review
-      flash[:fail] = t"controllers.reviews_controller.fail"
-      redirect_to request.referrer || film_path(@reviews.film)
+    flash[:failed] = t "controllers.reviews_controller.fail"
+    redirect_to film_path @review.film
+  end
+
+  def find_review
+    @review = Review.find_by id: params[:id]
+    return if @review
+    flash[:notice] = t "controllers.reviews_controller.error"
+    redirect_to root_path
   end
 end

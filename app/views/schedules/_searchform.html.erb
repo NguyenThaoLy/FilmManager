@@ -1,0 +1,9 @@
+<%= search_form_for @search, html: { class: "form-inline"}, remote: true do |f|  %>
+  <div class="col-md-10">
+      <%= f.text_field :date_cont, placeholder: "Find by date", class: "form-control", id: "searchdate", :'data-provide' => 'datepicker'%>
+      <%= f.text_field :film_name_cont, placeholder: "Find by name", class: "form-control", id: "searchname" %>
+    <div class="form-group">
+      <%= f.submit "Search", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

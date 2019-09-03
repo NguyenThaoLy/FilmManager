@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row">
+    <div class="event">
+      <div class="title">
+        <%= image_tag("h3_event.gif", alt: "h3_event.gif") %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="carousel slide media-carousel" id="media">
+      <div class="carousel-inner">
+        <div class="item  active">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <%= link_to  image_tag("item1.jpg", alt: "item1.jpg"), class: "img-responsive" %>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <%= link_to  image_tag("item2.jpg", alt: "item1.jpg"), class: "img-responsive" %>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <%= link_to  image_tag("item3.jpg", alt: "item1.jpg"), class: "img-responsive" %>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <%= link_to  image_tag("item5.jpg", alt: "item1.jpg"), class: "img-responsive" %>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <%= link_to  image_tag("item6.jpg", alt: "item1.jpg"), class: "img-responsive" %>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <%= link_to  image_tag("item4.png", alt: "item1.jpg"), class: "img-responsive" %>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <%= link_to  image_tag("qc2.jpg", alt: "item1.jpg"), class: "img-responsive" %>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <%= link_to  image_tag("qc3.jpg", alt: "item1.jpg"), class: "img-responsive" %>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <%= link_to  image_tag("slide12.jpg", alt: "item1.jpg"), class: "img-responsive" %>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <%= link_to  image_tag("slide11.jpg", alt: "item1.jpg"), class: "img-responsive" %>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <%= link_to  image_tag("slide5.png", alt: "item1.jpg"), class: "img-responsive" %>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <%= link_to  image_tag("slide9.jpg", alt: "item1.jpg"), class: "img-responsive" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%= link_to(image_tag("en.png", class: "img-responsive"), "#media", class: "left carousel-control", :'data-slide' => "prev") %>
+      <%= link_to(image_tag("right.png", class: "img-responsive"), "#media", class: "right carousel-control", :'data-slide' => "next") %>
+    </div>
+  </div>
+</div>
+<script>
+  $(document).ready(function() {
+    $('#media').carousel({
+      pause: true,
+      interval: false,
+    });
+  });
+</script>

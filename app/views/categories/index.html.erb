@@ -1,31 +1,4 @@
 <% provide :title , t(".title") %>
-<div class="showadmin">
-  <%= link_to t(".new"), new_category_path, class: "btn btn-primary glyphicon glyphicon-arrow-left" %>
-  <br>
-  <%= paginate @categories %>
-  <table class="table table-bordered table-list">
-    <thead>
-      <tr class="table-title">
-          <th><%= t ".name" %></th>
-          <th></th>
-          <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @categories.each do |f| %>
-      <tr>
-          <td><%= f.name %></td>
-          <td>
-              <%= link_to t(".edit"), edit_category_path(f.id) %>
-          </td>
-          <td>
-              <% if current_user.try :admin? %>
-                  <%= link_to t(".delete"), f, method: :delete, data: {confirm: t(".sure")}, class: "glyphicon glyphicon-trash" %>
-              <% end %>
-          </td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <%= paginate @categories %>
+<div id="categories">
+  <%= render "categories" %>
 </div>

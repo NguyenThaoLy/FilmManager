@@ -1,0 +1,51 @@
+<div class="row" style="margin-top: 5%">
+  <div class="col-md-2">
+    <%= render "admin/sidebar_admin" %>
+  </div>
+  <div class="col-md-10">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="container">
+          <div class="col-md-2">
+            <%= link_to t(".new"), new_category_path, class: "btn btn-primary glyphicon glyphicon-arrow-left" %>
+          </div>
+        </div>
+      </div>
+      <div class="panel-body">
+      <%= form_tag edit_multiple_categories_path do %>
+        <table class="table table-hover table-bordered">
+          <thead>
+            <tr class="table-title">
+                <th></th>
+                <th><%= t ".name" %></th>
+                <th colspan="2"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @categories.each do |f| %>
+            <tr>
+              <td><%= check_box_tag "category_ids[]", f.id %></td>
+              <td><%= f.name %></td>
+              <td>
+                  <%= link_to "", edit_category_path(f.id), class: "btn btn-success glyphicon glyphicon-pencil" %>
+              </td>
+              <td>
+                <% if current_user.try :admin? %>
+                  <%= link_to "", f, method: :delete, data: {confirm: t(".sure")}, class: "btn btn-danger glyphicon glyphicon-trash" %>
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <div class="row">
+          <div class="col-md-2">
+            <%= submit_tag "Edit checked", class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+         <%= paginate @categories, remote: true, theme: "twitter-bootstrap-3" %>
+      </div>
+    </div>
+  </div>
+</div>
